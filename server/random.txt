@@ -1,0 +1,6 @@
+Also needed for the backend:
+
+- package.json (sequelize/mysql)
+  - .env + eslint + tests
+- package.json (concurrently/scripts)
+
