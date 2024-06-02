@@ -1,8 +1,10 @@
-const { Schema,model} = require('mongoose');
+//User model
+const mongoose = require('mongoose');
+
 
 //creating user model with Schema 
 
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
     {
         first:String,
         last:String,
@@ -18,7 +20,15 @@ const userSchema = new Schema(
             unique:true,
             require:true,
             trim:true
-        }
-        }
+        },
+        password: { type: String, required: true },
+
+        bio: String,
+
+        location: String,
+
+        role: { type: String, enum: ['none', 'observer', 'study buddy', 'mentor', 'collaborator'], default: 'none' }
+        }, { timestamps: true });
     
-)
+        const User = mongoose.model('User', userSchema);
+        module.exports = User;
