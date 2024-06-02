@@ -74,3 +74,90 @@ userController.login = async (req, res) => {
     }
 };
 
+// Function to handle profile creation and update
+userController.updateProfile = async (req, res) => {
+    try {
+        // Extract user input from request body
+        const { firstName, lastName, bio, codingLanguages, location, photo, meetingPreference } = req.body;
+
+        // Get user ID from request
+        const userId = req.user.userId;
+
+        // Find user by ID and update profile fields
+        await User.findByIdAndUpdate(userId, {
+            $set: {
+                firstName,
+                lastName,
+                bio,
+                codingLanguages,
+                location,
+                photo,
+                meetingPreference
+            }
+        });
+
+        res.json({ message: 'Profile updated successfully' });
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+
+// Function to get user's connection history
+userController.getConnectionHistory = async (req, res) => {
+    try {
+        // Get user ID from request
+        const userId = req.user.userId;
+
+        // Find user by ID and populate connection history
+        const user = await User.findById(userId).populate('connectionHistory', 'firstName lastName');
+
+        res.json(user.connectionHistory);
+    } catch (error) {
+        console.error('Error fetching connection history:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+
+
+// Function to handle adding reviews
+userController.addReview = async (req, res) => {
+    try {
+        // Extract review data from request body
+        const { userId, content, rating } = req.body;
+
+        // Create a new review instance
+        const newReview = new Review({ userId, content, rating });
+
+        // Save the review to the database
+        await newReview.save();
+
+        // Update user's reviews array
+        await User.findByIdAndUpdate(userId, { $push: { reviews: newReview._id } });
+
+        res.json({ message: 'Review added successfully' });
+    } catch (error) {
+        console.error('Error adding review:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+module.exports = userController;
