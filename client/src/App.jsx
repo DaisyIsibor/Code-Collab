@@ -1,4 +1,5 @@
 import Header from './components/Header';
+import Form from './components/Form';
 
 function App() {
     return (
@@ -6,6 +7,10 @@ function App() {
             <Header />
         </div>
     );
+}
+
+function App() {
+    return <Form />;
 }
 
 export default App;
