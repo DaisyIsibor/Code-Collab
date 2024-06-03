@@ -1,23 +1,12 @@
 import express from "express";
-// This will help us connect to the database
-import db from "../db/connection.js";
-// This will help convert the id from string to ObjectId for the _id.
-import { ObjectId } from "mongodb";
-
-// router is an instance of the express router.
-// We use it to define our routes.
-// The router will be added as a middleware and will take control of requests starting with path /record.
-// We create the express router
+import User from "../models/user.js"; // Import the User model
 
 const router = express.Router();
-
-// Then we will start with our API endpoints
 
 // Get all users
 router.get("/", async (req, res) => {
   try {
-    const collection = await db.collection("users");
-    const users = await collection.find({}).toArray();
+    const users = await User.find();
     res.status(200).json(users);
   } catch (err) {
     console.error(err);
@@ -28,8 +17,7 @@ router.get("/", async (req, res) => {
 // Get a single user by ID
 router.get("/:id", async (req, res) => {
   try {
-    const collection = await db.collection("users");
-    const user = await collection.findOne({ _id: new ObjectId(req.params.id) });
+    const user = await User.findById(req.params.id).populate('connectionHistory reviews');
     if (!user) return res.status(404).json({ message: "User not found" });
     res.status(200).json(user);
   } catch (err) {
@@ -41,15 +29,22 @@ router.get("/:id", async (req, res) => {
 // Create a new user
 router.post("/", async (req, res) => {
   try {
-    const newUser = {
-      name: req.body.name,
-      languages: req.body.languages,
+    const newUser = new User({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      username: req.body.username,
+      password: req.body.password,
+      bio: req.body.bio,
+      codingLanguages: req.body.codingLanguages,
+      location: req.body.location,
+      photo: req.body.photo,
+      meetingPreference: req.body.meetingPreference,
       role: req.body.role,
-    };
+    });
 
-    const collection = await db.collection("users");
-    const result = await collection.insertOne(newUser);
-    res.status(201).json(result.ops[0]);
+    const savedUser = await newUser.save();
+    res.status(201).json(savedUser);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error adding user" });
@@ -59,18 +54,9 @@ router.post("/", async (req, res) => {
 // Update a user by ID
 router.patch("/:id", async (req, res) => {
   try {
-    const query = { _id: new ObjectId(req.params.id) };
-    const updates = {
-      $set: {
-        name: req.body.name,
-        languages: req.body.languages,
-        role: req.body.role,
-      },
-    };
-
-    const collection = await db.collection("users");
-    const result = await collection.updateOne(query, updates);
-    res.status(200).json({ message: "User updated" });
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    if (!updatedUser) return res.status(404).json({ message: "User not found" });
+    res.status(200).json(updatedUser);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error updating user" });
@@ -80,10 +66,8 @@ router.patch("/:id", async (req, res) => {
 // Delete a user by ID
 router.delete("/:id", async (req, res) => {
   try {
-    const query = { _id: new ObjectId(req.params.id) };
-
-    const collection = await db.collection("users");
-    const result = await collection.deleteOne(query);
+    const deletedUser = await User.findByIdAndDelete(req.params.id);
+    if (!deletedUser) return res.status(404).json({ message: "User not found" });
     res.status(200).json({ message: "User deleted" });
   } catch (err) {
     console.error(err);

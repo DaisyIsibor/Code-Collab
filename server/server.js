@@ -3,6 +3,10 @@
 import express from "express";
 import cors from "cors";
 import userRoutes from "./routes/user.js";
+import connectDB from './db/connection.js';
+
+// Connect to MongoDB
+connectDB();
 
 // Setting up the port & Express server using cors
 const PORT = process.env.PORT || 5051;

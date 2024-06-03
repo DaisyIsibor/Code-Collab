@@ -20,6 +20,10 @@ INSTRUCTIONS:
 
 *** The Backend should be connected and functional. ***
 
+8. Since Mongoose ODM helps create more structured data and better data validation, 'models' folder is created: `npm install mongoose`
+
+9. Also install: `npm install dotenv`
+
 ==================================================
 
 LINKS:
@@ -35,5 +39,23 @@ EXTRAS:
 - package.json (sequelize/mysql)
   - .env + eslint + tests
 - package.json (concurrently/scripts)
+
+==================================================
+
+/project-root
+|-- /client
+|   |-- // React application files
+|   |-- /src
+|       |-- // Frontend source files
+|-- /server
+|   |-- server.js
+|   |-- /db
+|   |   |-- connection.js
+|   |-- /routes
+|   |   |-- user.js
+|   |-- /models
+|       |-- user.js
+|-- config.env
+|-- package.json
 
 ==================================================

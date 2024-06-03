@@ -1,27 +1,26 @@
 // This page is for setting up the connection/db name
 
-import { MongoClient, ServerApiVersion } from "mongodb";
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-// Atlas uri from the env
-const URI = process.env.ATLAS_URI || "";
-const client = new MongoClient(URI, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
+dotenv.config();
 
-try {
-  // Connect the client to the server
-  await client.connect();
-  // Send a ping to confirm a successful connection
-  await client.db("admin").command({ ping: 1 });
-  console.log("Code Collab database is now up and running!");
-} catch (err) {
-  console.error(err);
-}
+// Function to connect to the MongoDB database
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.ATLAS_URI, {
+            // useNewUrlParser: true,
+            // useUnifiedTopology: true,
+            // useCreateIndex: true,
+            // useFindAndModify: false,
+        });
+        // Message indicating a successful connection
+        console.log('MongoDB connected to Code Collab!');
+    } catch (error) {
+        // Message for error in connection
+        console.error('MongoDB connection error:', error.message);
+        process.exit(1);
+    }
+};
 
-let db = client.db("users");
-
-export default db;
+export default connectDB;
