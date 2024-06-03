@@ -2,15 +2,15 @@
 
 import express from "express";
 import cors from "cors";
-import records from "./routes/record.js";
+import userRoutes from "./routes/user.js";
 
 // Setting up the port & Express server using cors
-const PORT = process.env.PORT || 5050;
+const PORT = process.env.PORT || 5051;
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/record", records);
+app.use("/user", userRoutes);
 
 // Starting the Express server
 app.listen(PORT, () => {
