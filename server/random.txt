@@ -4,3 +4,12 @@ Also needed for the backend:
   - .env + eslint + tests
 - package.json (concurrently/scripts)
 
+
+mongodb+srv://mongo:<password>@cluster0.oiuazsl.mongodb.net/
+
+links:
+
+https://www.mongodb.com/resources/languages/mern-stack-tutorial
+
+https://www.mongodb.com/docs/atlas/security-add-mongodb-users/
+
