@@ -1,0 +1,39 @@
+==================================================
+
+INSTRUCTIONS:
+
+1. Initialize the project by creating a 'package.json' file: `npm init -y`
+
+2. Edit 'package.json' file in order to use ES Modules instead of just CommonJS by adding: `"type": "module",`
+
+3. Install necessary dependencies: `npm install mongodb express cors`
+
+4. Create 'server.js' file.
+
+5. Create 'config.env' file to assign a new variable string and a port variable. 
+
+6. Create 'connection.js' to set up the database.
+
+*** At this point, the server side is set up and focus is moved to API endpoints. *** 
+
+7. Create 'routes' folder with API endpoints. After this, run: `node --env-file=config.env server`
+
+*** The Backend should be connected and functional. ***
+
+==================================================
+
+LINKS:
+
+https://www.mongodb.com/resources/languages/mern-stack-tutorial
+
+https://www.mongodb.com/docs/atlas/security-add-mongodb-users/
+
+==================================================
+
+EXTRAS:
+
+- package.json (sequelize/mysql)
+  - .env + eslint + tests
+- package.json (concurrently/scripts)
+
+==================================================
