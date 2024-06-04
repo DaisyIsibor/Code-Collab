@@ -32,6 +32,8 @@ https://www.mongodb.com/resources/languages/mern-stack-tutorial
 
 https://www.mongodb.com/docs/atlas/security-add-mongodb-users/
 
+https://www.loginradius.com/blog/engineering/nodejs-and-mongodb-application-authentication-by-jwt/
+
 ==================================================
 
 EXTRAS:
