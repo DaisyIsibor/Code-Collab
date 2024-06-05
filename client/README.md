@@ -25,7 +25,8 @@ Currently, two official plugins are available:
 
 ## Description
 - 
-- Future development includes a message box for questions (similar to an AI chatbox...), payment stripe (option to add tips for everybody and/or mentors ). 
+- Future development 
+- a message box for questions (similar to an AI chatbox...), payment stripe (option to add tips for everybody and/or mentors ). 
 
 ## User Story 
 - 
@@ -37,7 +38,8 @@ Currently, two official plugins are available:
 - 
 
 ## Installation
-- 
+- npm i bootstrap react-bootstrap 
+- npm jwt-decode@2 
 
 ## Usage
 - 
@@ -56,5 +58,9 @@ Currently, two official plugins are available:
 https://www.youtube.com/watch?v=4nKWREmCvsE&list=PL-RBOWPzYiMdR3xRSR2mOF8X0G8gWYkSe&index=2
 
 https://dev.to/fredabod/authentication-signup-and-login-with-expressmongodb-and-jwt-2n64
+
+https://reactrouter.com/en/main/components/outlet
+
+(2023, April 12) https://medium.com/@hpark0114/react-outlet-params-5da45901fc45
 
 University of Toronto. (2023). Coding Boot Camp [Source Code].

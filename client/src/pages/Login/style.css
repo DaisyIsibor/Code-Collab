@@ -12,3 +12,8 @@ form {
 div {
     margin: 30px;
 }
+
+button {
+    color: rgb(22, 115, 158);
+    background-color: white;
+}

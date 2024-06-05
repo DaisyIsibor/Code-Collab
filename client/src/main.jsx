@@ -15,9 +15,8 @@ import Mentors from './pages/Mentors';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-// import Blog from './pages/Blog';
 
-// Define the accessible routes, and which components respond to which URL
+// Define the accessible routes and which components respond to which URL
 const router = createBrowserRouter([
   {
     path: '/',
