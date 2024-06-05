@@ -1,12 +1,10 @@
 // Moved controllers folder to the server 
 
 // Import required modules
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const User = require('../models/user');
-const Review = require('../models/review');
-
-
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import User from '../models/user.js';
+import Review from '../models/review.js';
 
 // User Controller object
 const userController = {};
@@ -105,7 +103,6 @@ userController.updateProfile = async (req, res) => {
     }
 };
 
-
 // Function to get user's connection history
 userController.getConnectionHistory = async (req, res) => {
     try {
@@ -121,8 +118,6 @@ userController.getConnectionHistory = async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 };
-
-
 
 // Function to handle adding reviews
 userController.addReview = async (req, res) => {
@@ -147,4 +142,4 @@ userController.addReview = async (req, res) => {
 };
 
 // Exporting the module
-module.exports = userController;
+export default userController;
