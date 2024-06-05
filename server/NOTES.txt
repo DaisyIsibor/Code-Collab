@@ -1,0 +1,80 @@
+==================================================
+
+INSTRUCTIONS:
+
+1. Initialize the project by creating a 'package.json' file: `npm init -y`
+
+2. Edit 'package.json' file in order to use ES Modules instead of just CommonJS by adding: `"type": "module",`
+
+3. Install necessary dependencies: `npm install mongodb express cors`
+
+4. Create 'server.js' file.
+
+5. Create 'config.env' file to assign a new variable string and a port variable. 
+
+6. Create 'connection.js' to set up the database.
+
+*** At this point, the server side is set up and focus is moved to API endpoints. *** 
+
+7. Create 'routes' folder with API endpoints. After this, run: `node --env-file=config.env server`
+
+*** The Backend should be connected and functional. ***
+
+8. Since Mongoose ODM helps create more structured data and better data validation, 'models' folder is created: `npm install mongoose`
+
+9. Also install: `npm install dotenv`, `npm i bcrypt` , `npm i jsonwebtoken`
+
+==================================================
+
+LINKS:
+
+https://www.mongodb.com/resources/languages/mern-stack-tutorial
+
+https://www.mongodb.com/docs/atlas/security-add-mongodb-users/
+
+https://www.loginradius.com/blog/engineering/nodejs-and-mongodb-application-authentication-by-jwt/
+
+==================================================
+
+EXTRAS:
+
+- package.json (sequelize/mysql)
+  - .env + eslint + tests
+- package.json (concurrently/scripts)
+
+- is installable media after signing out
+- option to delete account
+- option to reset password
+- option to change password
+- 
+
+==================================================
+
+/Code Collab
+|-- /client
+|   |-- // React application files
+|   |-- /src
+|       |-- // Frontend source files
+|-- /server
+|   |-- server.js
+|   |-- /db
+|   |   |-- connection.js
+|   |-- /routes
+|   |   |-- user.js
+|   |-- /models
+|   |   |-- user.js
+|   |   |-- review.js
+|-- config.env
+|-- package.json
+|-- server.js
+
+==================================================
+
+NPM Packages:
+
+- npm init -y
+- npm install mongodb express cors mongoose dotenv bcrypt jsonwebtoken
+
+==================================================
+
+
