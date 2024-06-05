@@ -67,4 +67,14 @@ EXTRAS:
 |-- config.env
 |-- package.json
 |-- server.js
+
 ==================================================
+
+NPM 
+
+- npm init -y
+- npm install mongodb express cors mongoose dotenv bcrypt jsonwebtoken
+
+==================================================
+
+
