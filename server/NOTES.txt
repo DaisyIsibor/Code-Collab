@@ -22,7 +22,7 @@ INSTRUCTIONS:
 
 8. Since Mongoose ODM helps create more structured data and better data validation, 'models' folder is created: `npm install mongoose`
 
-9. Also install: `npm install dotenv`
+9. Also install: `npm install dotenv`, `npm i bcrypt` , `npm i jsonwebtoken`
 
 ==================================================
 

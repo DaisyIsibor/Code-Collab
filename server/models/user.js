@@ -22,10 +22,10 @@ const userSchema = new mongoose.Schema({
     codingLanguages: [String],
     location: String,
     photo: String, // Store the path to the uploaded photo
-    meetingPreference: { type: String, enum: ['in person', 'online'] },
+    meetingPreference: { type: String, enum: ['In Person', 'Online'] },
     connectionHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], // Store IDs of connected users
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }], // Store IDs of reviews
-    role: { type: String, enum: ['none', 'observer', 'study buddy', 'mentor', 'collaborator'], default: 'none' }
+    role: { type: String, enum: ['None', 'Observer', 'Study Buddy', 'Mentor', 'Collaborator'], default: 'None' }
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

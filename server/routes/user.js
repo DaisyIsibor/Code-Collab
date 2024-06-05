@@ -1,7 +1,14 @@
 import express from "express";
-import User from "../models/user.js"; // Import the User model
+import userController from '../controllers/userController.js';
+import User from "../models/user.js"; 
 
 const router = express.Router();
+
+// User registration route
+router.post('/register', userController.register);
+
+// User login route
+router.post('/login', userController.login);
 
 // Get all users
 router.get("/", async (req, res) => {
