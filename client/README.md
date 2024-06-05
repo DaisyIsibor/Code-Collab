@@ -14,6 +14,7 @@ Currently, two official plugins are available:
 - [Description](#description)
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
+- [Technologies Used]
 - [Installation](installation)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
@@ -24,12 +25,16 @@ Currently, two official plugins are available:
 
 ## Description
 - 
+- Future development includes a message box for questions (similar to an AI chatbox...), payment stripe (option to add tips for everybody and/or mentors ). 
 
 ## User Story 
 - 
 
 ## Acceptance Criteria
 -  
+
+## Technologies Used 
+- 
 
 ## Installation
 - 

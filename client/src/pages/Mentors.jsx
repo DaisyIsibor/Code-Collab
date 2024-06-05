@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function 2Mentors() {
+export default function Mentors() {
     const linkStyle = { border: '5px black', padding: '10px' };
 
     return (
@@ -13,6 +13,8 @@ export default function 2Mentors() {
                 alignItems: 'flex-start',
             }}
             >
+            {/* Need to work on these anchor tags and change them to links instead */}
+            {/* Using the React router DOM for internal links  */}
             <div style={linkStyle}>
                 <a href='#'>Mentors</a>
             </div>
@@ -26,3 +28,5 @@ export default function 2Mentors() {
         </nav>
     )
 }
+
+// Component library or CSS library for styling --> Basic = Bootstrap combined with React Bootstrap 
