@@ -1,0 +1,19 @@
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+form {
+    width: 88%,
+    /* margin-left: 30px; */
+    /* : 0 auto; */
+}
+
+div {
+    margin: 30px;
+}
+
+button {
+    color: rgb(22, 115, 158);
+    background-color: white;
+}
