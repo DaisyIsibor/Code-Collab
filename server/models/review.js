@@ -10,7 +10,8 @@ const reviewSchema = new mongoose.Schema({
     },
     content: {
         type: String,
-        required: true
+        required: true,
+        maxlength: [200, 'Content cannot exceed 200 characters']
     },
     rating: {
         type: Number,
