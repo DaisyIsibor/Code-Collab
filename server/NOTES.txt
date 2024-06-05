@@ -42,9 +42,15 @@ EXTRAS:
   - .env + eslint + tests
 - package.json (concurrently/scripts)
 
+- is installable media after signing out
+- option to delete account
+- option to reset password
+- option to change password
+- 
+
 ==================================================
 
-/project-root
+/Code Collab
 |-- /client
 |   |-- // React application files
 |   |-- /src
@@ -56,8 +62,9 @@ EXTRAS:
 |   |-- /routes
 |   |   |-- user.js
 |   |-- /models
-|       |-- user.js
+|   |   |-- user.js
+|   |   |-- review.js
 |-- config.env
 |-- package.json
-
+|-- server.js
 ==================================================
