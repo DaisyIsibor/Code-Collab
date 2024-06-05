@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 function App() {
     // const isLoggedIn = Auth.loggedIn() 
-    const [loggedIn, setLoggedIn] = useState(Auth.loggedIn())
+    const [loggedIn, setLoggedIn] = useState(Auth.loggedIn()) // Lifting State here
     return (
         <div>
             <Header loggedIn={ loggedIn } setLoggedIn = { setLoggedIn } />

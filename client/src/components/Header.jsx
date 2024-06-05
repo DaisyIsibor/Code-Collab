@@ -6,10 +6,11 @@
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth'; // Depends on our set up
 
-const Header = () => {
+const Header = ({ loggedIn, setLoggedIn}) => {
     const logout = (event) => {
         event.preventDefault();
-        Auth.logout(); // This is in the utils.js file under utils folder in this specific example but depends on our set up 
+        Auth.logout();
+        setLoggedIn(false); // This is in the utils.js file under utils folder in this specific example but depends on our set up 
     };
     return(
         <header className='bg-info text-dark mb-4 py-3 display-flex align-center'>
@@ -19,7 +20,7 @@ const Header = () => {
                 </Link>
                 <p className='m-0' styles={{ fontSize: '1.75rem', fontWeight: '400' }}> Find your new programming pals! </p>
                 <div>
-                    {Auth.loggedIn() ? (
+                    {loggedIn ? (
                         <button className='btn btn-lg btn-light m-2' onClick={logout}>Logout</button>
                     ) : ( 
                     <>
