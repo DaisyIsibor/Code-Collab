@@ -21,6 +21,7 @@ app.use(express.json());
 // Use routes
 app.use("/user", userRoutes);
 
+
 // Starting the Express server
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
