@@ -9,10 +9,6 @@ dotenv.config();
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.ATLAS_URI, {
-            // useNewUrlParser: true,
-            // useUnifiedTopology: true,
-            // useCreateIndex: true,
-            // useFindAndModify: false,
         });
         // Message indicating a successful connection
         console.log('MongoDB connected to Code Collab!');

@@ -34,6 +34,8 @@ https://www.mongodb.com/docs/atlas/security-add-mongodb-users/
 
 https://www.loginradius.com/blog/engineering/nodejs-and-mongodb-application-authentication-by-jwt/
 
+https://www.mongodb.com/community/forums/t/argument-of-type-usenewurlparser-boolean-useunifiedtopology-boolean-is-not-assignable-to-parameter-of-type/169033/3
+
 ==================================================
 
 EXTRAS:
@@ -76,5 +78,5 @@ NPM Packages:
 - npm install mongodb express cors mongoose dotenv bcrypt jsonwebtoken
 
 ==================================================
-
+..
 
