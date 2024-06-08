@@ -55,20 +55,45 @@ EXTRAS:
 /Code Collab
 |-- /client
 |   |-- // React application files
+|   |-- /public
+|   |   |-- index.html
 |   |-- /src
 |       |-- // Frontend source files
+|       |-- /components
+|       |   |-- RegisterForm.jsx
+|       |   |-- LoginForm.jsx // New file for login form
+|       |-- /pages
+|       |   |-- Login
+|       |   |   |-- index.jsx
+|       |   |   |-- style.css
+|       |   |-- Apply.jsx
+|       |   |-- Home.jsx
+|       |   |-- Mentors.jsx
+|       |   |-- Profile.jsx
+|       |   |-- Signup.jsx
+|       |   |-- UsersList.jsx // New file for displaying all users
+|       |-- /utils
+|       |   |-- api.js
+|       |   |-- auth.js // Renamed from utils.js for clarity
+|       |-- App.js // Main application component with routing
+|       |-- index.js // React entry point
 |-- /server
 |   |-- server.js
 |   |-- /db
 |   |   |-- connection.js
+|   |-- /controllers
+|   |   |-- userController.js
+|   |   |-- reviewController.js
 |   |-- /routes
 |   |   |-- user.js
+|   |   |-- review.js
 |   |-- /models
 |   |   |-- user.js
 |   |   |-- review.js
 |-- config.env
 |-- package.json
 |-- server.js
+
 
 ==================================================
 
