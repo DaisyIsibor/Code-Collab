@@ -36,6 +36,12 @@ https://www.loginradius.com/blog/engineering/nodejs-and-mongodb-application-auth
 
 https://www.mongodb.com/community/forums/t/argument-of-type-usenewurlparser-boolean-useunifiedtopology-boolean-is-not-assignable-to-parameter-of-type/169033/3
 
+https://www.angularminds.com/blog/protected-routes-in-react-router-authentication-and-authorization
+
+https://www.reddit.com/r/reactjs/comments/16zojkf/how_should_a_protected_route_be_created_with/
+
+
+
 ==================================================
 
 EXTRAS:
