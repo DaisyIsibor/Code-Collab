@@ -1,12 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
 # Code-Collab
 - A website for individuals who code to collobrate 
 
@@ -14,7 +5,7 @@ Currently, two official plugins are available:
 - [Description](#description)
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
-- [Technologies Used]
+- [Technologies Used](#technologies-used)
 - [Installation](installation)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
@@ -24,9 +15,11 @@ Currently, two official plugins are available:
 - [Credits](#credits)
 
 ## Description
-- 
-- Future development 
-- a message box for questions (similar to an AI chatbox...), payment stripe (option to add tips for everybody and/or mentors ). 
+- Our motivation for this project was launched after a discussion about connecting with each other, and our classmates, after our boot camp has ended. We aimed to build an application where developers could connect and futher build on their skills. We also wanted to provide a welcoming space for developers of all levels to collobrate and the classification for developers as either a mentor, collobrator or study buddy was born. 
+- List of technologies used...
+- Challenges...
+- Future development...
+- a message box for questions (similar to an AI chatbox...), payment stripe (option to add tips for everybody and/or mentors who want to provide services for a fee?). 
 
 ## User Story 
 - 
