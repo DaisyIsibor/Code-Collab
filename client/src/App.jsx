@@ -9,7 +9,7 @@ function App() {
     return (
         <div>
             <Header loggedIn={ loggedIn } setLoggedIn = { setLoggedIn } />
-            {/* The four app pages will swap in and out of the Oulet and the header will stay on every page  */}
+            {/* The app pages will swap in and out of the Oulet and the header will stay on every page  */}
             <main><Outlet context = { [loggedIn, setLoggedIn ] }/> </main>
         </div>
     );

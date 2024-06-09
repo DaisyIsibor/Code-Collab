@@ -8,7 +8,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // }
 
 import App from './App';
-// import Error from './pages/Error';
 import Home from './pages/Home';
 import Apply from './pages/Apply';
 import Mentors from './pages/Mentors';

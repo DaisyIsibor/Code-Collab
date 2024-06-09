@@ -1,38 +1,24 @@
-// import a form component 
-
-// Mod 20 / Activity 15
-// import { useState } from 'react';
-
-// function Profile() { // In App.jsx - we are setting two state variables for firstName and lastName using 'useState'
-//     const [firstName, setFirstName] = useState('');
-//     const [lastName, setLastName] = useState('');
-//     return (<div>Profile</div>)
-// }
-
-// export default Profile
-
-//Mod 20/ Activity 23
-
 import Form from 'react-bootstrap/Form';
+// import './style.css'
 
 export default function Profile() {
   return (
     <div>
-        <h2>Create your Profile</h2>
+        <h2>Create your Profile!</h2>
         <h3>Please fill out the fields below to create your profile</h3>
     <Form>
       <Form.Group controlId="formFile" className="mb-3">
         <Form.Label>Default file input example</Form.Label>
         <Form.Control type="file" />
       </Form.Group>
-      <Form.Group controlId="formFileMultiple" className="mb-3">
+      {/* <Form.Group controlId="formFileMultiple" className="mb-3">
         <Form.Label>Multiple files input example</Form.Label>
-        <Form.Control type="file" multiple />
-      </Form.Group>
-      <Form.Group controlId="formFileDisabled" className="mb-3">
+        <Form.Control type="file" multiple /> */}
+      {/* </Form.Group> */}
+      {/* <Form.Group controlId="formFileDisabled" className="mb-3">
         <Form.Label>Disabled file input example</Form.Label>
         <Form.Control type="file" disabled />
-      </Form.Group>
+      </Form.Group> */}
       <Form.Group controlId="formFileSm" className="mb-3">
         <Form.Label>Small file input example</Form.Label>
         <Form.Control type="file" size="sm" />
@@ -45,8 +31,39 @@ export default function Profile() {
     {/* </> */}
     </div>
   );
+  
+  const ProfileCreation = () => {
+    return [formData, setForData] =
+    useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        username: '',
+        password: '',
+        codingLanguages: '',
+        meetingPreference: '',
+        role: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Profile changes submitted:', formData);
+    };
+    return (
+        <div>
+            <h4>Create Profile</h4>
+            <form onSubmit= 
+        </div>
+    )
+  }
 }
 
-// export default FormFileExample;
-//     );
-// }
+
+
