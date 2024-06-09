@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AuthService from '../utils/auth';
 import { registerUser } from '../utils/api';
+import AuthService from '../utils/auth';
 
 const RegisterForm = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -21,9 +21,10 @@ const RegisterForm = () => {
       const response = await registerUser(formState);
       console.log('User registered:', response);
       AuthService.login(response.token);
-      navigate('/users'); // Redirect to user list after registration
+      navigate('/users');
     } catch (error) {
-      console.error('Error registering user:', error.response ? error.response.data : error);
+      console.error('Error registering user:', error.message ? error.message : error);
+      alert('Error registering user: ' + (error.message ? error.message : error));
     }
   };
 

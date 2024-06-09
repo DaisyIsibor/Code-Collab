@@ -30,20 +30,12 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/users" element={<UserList />} />
-        <Route path="/users/:userId" element={<UserDetail />} />
-        <Route path="/apply" element={<Apply />} />
-        <Route path="/mentor" element={<Mentors />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/users" element={<ProtectedRoute><UserList /></ProtectedRoute>} />
+        <Route path="/users/:userId" element={<ProtectedRoute><UserDetail /></ProtectedRoute>} />
+        <Route path="/apply" element={<ProtectedRoute><Apply /></ProtectedRoute>} />
+        <Route path="/mentor" element={<ProtectedRoute><Mentors /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/protected"
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
       </Routes>
     </Router>
   );

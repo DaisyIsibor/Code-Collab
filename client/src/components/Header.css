@@ -1,5 +1,70 @@
-/* UserDetail style.css */
-.container {
-    padding: 20px;
-  }
-  
+/* Header.css */
+.bg-info {
+  background-color: #17a2b8 !important;
+}
+
+.text-dark {
+  color: #343a40 !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.display-flex {
+  display: flex !important;
+}
+
+.align-center {
+  align-items: center !important;
+}
+
+.text-light {
+  color: #f8f9fa !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.justify-space-between-lg {
+  justify-content: space-between !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-lg {
+  font-size: 1.25rem;
+  padding: 10px 20px;
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+  color: #000;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.m-2 {
+  margin: 0.5rem !important;
+}
