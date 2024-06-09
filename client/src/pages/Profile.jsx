@@ -1,13 +1,13 @@
 import Form from 'react-bootstrap/Form';
 // import './style.css'
 // import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
-import * as formik from 'formik';
-import * as yup from 'yup';
+// import Button from 'react-bootstrap/Button';
+// import Col from 'react-bootstrap/Col';
+// import Form from 'react-bootstrap/Form';
+// import InputGroup from 'react-bootstrap/InputGroup';
+// import Row from 'react-bootstrap/Row';
+// import * as formik from 'formik';
+// import * as yup from 'yup';
 
 export default function Profile() {
   return (
@@ -111,9 +111,10 @@ export default function Profile() {
 //     firstName: yup.string().required(),
 //     lastName: yup.string().required(),
 //     username: yup.string().required(),
-//     city: yup.string().required(),
-//     state: yup.string().required(),
-//     zip: yup.string().required(),
+//     email: yup.string().required(),
+//     password: yup.string().required(),
+//     codingLanguages: yup.string().required(),
+//     meetingPreferences: yup.string().required(),
 //     file: yup.mixed().required(),
 //     terms: yup.bool().required().oneOf([true], 'terms must be accepted'),
 //   });
