@@ -25,10 +25,26 @@ const UserDetail = () => {
   }
 
   return (
-    <div>
+    <div className="user-detail-container">
       <h2>{user.username}'s Profile</h2>
-      <p>Email: {user.email}</p>
-      {/* Display other user details as needed */}
+      {user.bio && <p><strong>Bio:</strong> {user.bio}</p>}
+      {user.codingLanguages && user.codingLanguages.length > 0 && (
+        <p><strong>Coding Languages:</strong> {user.codingLanguages.join(', ')}</p>
+      )}
+      {user.role && <p><strong>Role:</strong> {user.role}</p>}
+      {user.location && <p><strong>Location:</strong> {user.location}</p>}
+      {user.reviews && user.reviews.length > 0 && (
+        <div>
+          <strong>Reviews:</strong>
+          <ul>
+            {user.reviews.map(review => (
+              <li key={review._id}>
+                <p>{review.content} - <strong>Rating:</strong> {review.rating}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

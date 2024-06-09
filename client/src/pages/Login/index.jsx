@@ -9,6 +9,7 @@ import AuthService from '../../utils/auth';
 export default function Login() {
   const navigate = useNavigate();
 
+  // Handled form submission for logging in the user
   const handleSubmit = async (e) => {
     e.preventDefault();
     const credentials = {
@@ -17,12 +18,14 @@ export default function Login() {
     };
 
     try {
+      // Sent login request with user credentials
       const response = await loginUser(credentials);
       console.log('User logged in:', response);
 
+      // Logged in the user by storing the token
       AuthService.login(response.token);
 
-      // Ensure to set loggedIn state to true
+      // Redirected to the /users page
       navigate('/users');
     } catch (error) {
       console.error('Error logging in user:', error.message ? error.message : error);

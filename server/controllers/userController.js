@@ -116,4 +116,19 @@ userController.addReview = async (req, res) => {
     }
 };
 
+// Function to get a single user by ID
+userController.getUserById = async (req, res) => {
+    try {
+        // Fetching user details by ID, excluding the email for privacy reasons
+        const user = await User.findById(req.params.id)
+            .populate('reviews')
+            .select('-email');
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        res.status(200).json(user);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Error retrieving user' });
+    }
+};
+
 export default userController;
