@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:5051';
+const baseURL = 'http://localhost:5051/api/users';
 
 // Endpoint specific to user operations
 const API_URL = `${baseURL}/api/users`;
@@ -19,11 +19,11 @@ export const registerUser = async (userData) => {
 // Function to login a user
 export const loginUser = async (credentials) => {
   try {
-    const response = await axios.post(`${API_URL}/login`, credentials);
+    const response = await axios.post(`${baseURL}/login`, credentials);
     return response.data;
   } catch (error) {
-    console.error('Error logging in user:', error);
-    throw error;
+    console.error('Error logging in user:', error.response ? error.response.data : error);
+    throw error.response ? error.response.data : error;
   }
 };
 
@@ -59,5 +59,3 @@ export const getAllUsers = async () => {
     throw error;
   }
 };
-
-

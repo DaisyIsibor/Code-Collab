@@ -1,6 +1,6 @@
 import express from 'express';
 import userController from '../controllers/userController.js';
-import User from '../models/user.js';
+import User from '../models/user.js';  // Import the User model
 
 const router = express.Router();
 
@@ -11,10 +11,10 @@ router.post('/register', userController.register);
 router.post('/login', userController.login);
 
 // Update profile route
-router.put('/profile', userController.updateProfile); // Assuming PUT method for updates
+router.put('/profile', userController.updateProfile);
 
 // Get connection history route
-router.get('/connections', userController.getConnectionHistory); // Assuming GET method for fetching connections
+router.get('/connections', userController.getConnectionHistory);
 
 // Add review route
 router.post('/review', userController.addReview);
