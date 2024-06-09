@@ -22,6 +22,7 @@ export default function Login() {
 
       AuthService.login(response.token);
 
+      // Ensure to set loggedIn state to true
       navigate('/users');
     } catch (error) {
       console.error('Error logging in user:', error.message ? error.message : error);

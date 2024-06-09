@@ -13,9 +13,7 @@ class AuthService {
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
-      if (decoded.exp < Date.now() / 1000) {
-        return true;
-      } else return false;
+      return decoded.exp < Date.now() / 1000;
     } catch (err) {
       return false;
     }
@@ -27,29 +25,12 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    window.location.assign('/users'); // Change this to navigate to the users page
   }
 
   logout() {
     localStorage.removeItem('id_token');
     window.location.assign('/');
-  }
-
-  static login(token) {
-    localStorage.setItem('token', token);
-  }
-
-  static logout() {
-    localStorage.removeItem('token');
-  }
-
-  static getToken() {
-    return localStorage.getItem('token');
-  }
-
-  static loggedIn() {
-    const token = this.getToken();
-    return !!token;
   }
 }
 

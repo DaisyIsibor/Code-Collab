@@ -13,7 +13,7 @@ import Mentors from './pages/Mentors';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Auth from './utils/auth';
-import './index.css';  // Global CSS import
+import './index.css'; // Global CSS import
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -22,7 +22,6 @@ const App = () => {
     setLoggedIn(Auth.loggedIn());
   }, []);
 
-  console.log('App component rendered');
   return (
     <Router>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
