@@ -23,7 +23,7 @@
 //     </div>
 //   );
 // }
-
+import Auth from '../utils/auth';
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -53,7 +53,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const response = await
-      axios.put('/profile', formData);
+      axios.put('/profile', {...formData, userId: Auth.getProfile().setformData});
       console.log(response.data);
     } catch (error) {
       console.error('There was an error creating your profile!', error);
