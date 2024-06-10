@@ -1,46 +1,106 @@
-import Form from 'react-bootstrap/Form';
-// import './style.css'
-// import { useState } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Col from 'react-bootstrap/Col';
 // import Form from 'react-bootstrap/Form';
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import Row from 'react-bootstrap/Row';
-// import * as formik from 'formik';
-// import * as yup from 'yup';
 
-export default function Profile() {
+// export default function Profile() {
+//   return (
+//     <div>
+//         <h2>Create your Profile!</h2>
+//         <h3>Please fill out the fields below to create your profile</h3>
+//     <Form>
+//       <Form.Group controlId="formFile" className="mb-3">
+//         <Form.Label>Default file input example</Form.Label>
+//         <Form.Control type="file" />
+//       </Form.Group>
+//       <Form.Group controlId="formFileSm" className="mb-3">
+//         <Form.Label>Small file input example</Form.Label>
+//         <Form.Control type="file" size="sm" />
+//       </Form.Group>
+//       <Form.Group controlId="formFileLg" className="mb-3">
+//         <Form.Label>Large file input example</Form.Label>
+//         <Form.Control type="file" size="lg" />
+//       </Form.Group>
+//     </Form>
+//     {/* </> */}
+//     </div>
+//   );
+// }
+
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const Profile = () => {
+  const [formData, setformData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '', 
+    username: '',
+    password: '',
+    codingLanguages: '',
+    meetingPreference: '',
+    connectionHistory: '',
+    reviews: '',
+    role: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setformData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await
+      axios.put('/profile', formData);
+      console.log(response.data);
+    } catch (error) {
+      console.error('There was an error creating your profile!', error);
+    }
+  };
+
   return (
-    <div>
-        <h2>Create your Profile!</h2>
-        <h3>Please fill out the fields below to create your profile</h3>
-    <Form>
-      <Form.Group controlId="formFile" className="mb-3">
-        <Form.Label>Default file input example</Form.Label>
-        <Form.Control type="file" />
-      </Form.Group>
-      {/* <Form.Group controlId="formFileMultiple" className="mb-3">
-        <Form.Label>Multiple files input example</Form.Label>
-        <Form.Control type="file" multiple /> */}
-      {/* </Form.Group> */}
-      {/* <Form.Group controlId="formFileDisabled" className="mb-3">
-        <Form.Label>Disabled file input example</Form.Label>
-        <Form.Control type="file" disabled />
-      </Form.Group> */}
-      <Form.Group controlId="formFileSm" className="mb-3">
-        <Form.Label>Small file input example</Form.Label>
-        <Form.Control type="file" size="sm" />
-      </Form.Group>
-      <Form.Group controlId="formFileLg" className="mb-3">
-        <Form.Label>Large file input example</Form.Label>
-        <Form.Control type="file" size="lg" />
-      </Form.Group>
-    </Form>
-    {/* </> */}
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>First Name:</label>
+        <input type="text" name="firstname" value={formData.firstname} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Last Name:</label>
+        <input type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input type="text" name="lastname" value={formData.email} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Bio:</label>
+        <input type="text" name="bio" value={formData.bio} onChange={handleChange} />
+      <div>
+        <label>Coding Languages:</label>
+        <input type="text" name="codingLanguages" value={formData.codingLanguages} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Meeting Preference:</label>
+        <input type="text" name="Meeting Preferences" value={formData.meetingPreference} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Location:</label>
+        <input type="text" name="codingLanguagelocation" value={formData.location} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Role:</label>
+        <input type="text" name="role" value={formData.role} onChange={handleChange} />
+      </div>
+      </div>
+      <button type="submit">Update Profile</button>
+    </form>
   );
-}
-  
+};
+
+export default Profile;
+
 //   const ProfileCreation = () => {
 //     return [formData, setForData] =
 //     useState({
@@ -92,7 +152,7 @@ export default function Profile() {
 
 // };
 
-// MODULE 22 / ACTIVITY 25
+
 
 // In server.js
 
