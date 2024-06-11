@@ -14,7 +14,7 @@ function App() {
             <main><Outlet context = { [loggedIn, setLoggedIn ] }/> </main>
         </div>
     );
-=======
+//=======
 //   const [loggedIn, setLoggedIn] = useState(Auth.loggedIn());
 
 //   useEffect(() => {
