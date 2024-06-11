@@ -122,3 +122,22 @@ NPM Packages:
 ==================================================
 ...
 
+
+POSTMAN ROUTES
+
+
+GET users routes : http://localhost:5051/api/users/
+POST new user regster: http://localhost:5051/api/users/register
+req body: {
+  
+  "firstName": "Alice",
+    "lastName": "Smith",
+    "email": "alice.smith@example.com",
+    "username": "alicesmith",
+    "password": "Eagle3000$",
+    "bio": "I am passionate about coding and teaching others to code",
+    "codingLanguages": "JavaScript, Java, HTML/CSS,React",
+    "location": "San Francisco",
+    "meetingPreference": "In Person",
+    "role": "Mentor"
+}

@@ -6,3 +6,5 @@ Deploying on Render:
 - Change start command...(optional, I changed to npm start)
 - Select Free
 - Create web service
+
+- The roles should have a list to pick from, none,Observer,Study Buddy, Mentor, Collaborator with a defalut for none.

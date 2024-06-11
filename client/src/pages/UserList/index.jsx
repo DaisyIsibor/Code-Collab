@@ -1,3 +1,5 @@
+// this displays all users on the users page 
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllUsers } from '../../utils/api';

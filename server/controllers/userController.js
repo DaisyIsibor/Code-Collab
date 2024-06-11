@@ -20,7 +20,14 @@ userController.register = async (req, res) => {
         const newUser = new User({
             email,
             username,
-            password: hashedPassword
+            password: hashedPassword,
+            firstName,
+            lastName,
+            bio,
+            codingLanguages,
+            location,
+            meetingPreference,
+            role,
         });
 
         await newUser.save();
@@ -61,7 +68,7 @@ userController.login = async (req, res) => {
 // Function to handle profile creation and update
 userController.updateProfile = async (req, res) => {
     try {
-        const { firstName, lastName, bio, codingLanguages, location, photo, meetingPreference } = req.body;
+        const { firstName, lastName, bio, codingLanguages, location, photo, meetingPreference,role} = req.body;
 
         const userId = req.user.userId;
 
@@ -73,7 +80,8 @@ userController.updateProfile = async (req, res) => {
                 codingLanguages,
                 location,
                 photo,
-                meetingPreference
+                meetingPreference,
+                role
             }
         });
 

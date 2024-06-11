@@ -19,16 +19,37 @@ router.get('/connections', userController.getConnectionHistory);
 // Add review route
 router.post('/review', userController.addReview);
 
-// Get all users
+
+// Get all users or filter by role
 router.get('/', async (req, res) => {
     try {
-        const users = await User.find();
+        const { role } = req.query;
+        let users;
+        if (role) {
+            // If role filter is provided, filter users by role
+            users = await User.find({ role });
+        } else {
+            // Otherwise, fetch all users
+            users = await User.find();
+        }
         res.status(200).json(users);
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Error retrieving users' });
     }
 });
+
+
+// Get all users
+// router.get('/', async (req, res) => {
+//     try {
+//         const users = await User.find();
+//         res.status(200).json(users);
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).json({ message: 'Error retrieving users' });
+//     }
+// });
 
 // Get a single user by ID
 router.get('/:id', async (req, res) => {
