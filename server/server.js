@@ -1,9 +1,12 @@
-// This file sets up and runs the server
-
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './db/connection.js';
+
+// For Chat
+import http from 'http';
+import { Server } from 'socket.io';
+import ChatMessage from './models/ChatMessage.js';
 
 // Load environment variables
 dotenv.config();
@@ -17,21 +20,49 @@ const PORT = process.env.PORT || 5051;
 // Express server using cors
 const app = express();
 
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: ["http://localhost:3000", "http://localhost:5173"], // Add both origins here
+    methods: ["GET", "POST"],
+    credentials: true
+  }
+});
+
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3000", "http://localhost:5173"], // Add both origins here
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
 
 // Routes
 import userRoutes from './routes/user.js';
 import reviewRoutes from './routes/review.js';
+import chatRoutes from './routes/chat.js';
 
 app.use('/api/users', userRoutes); // Mount user routes under /api/users endpoint
 app.use('/api/reviews', reviewRoutes); // Mount review routes under /api/reviews endpoint
+app.use('/api/chat', chatRoutes);
 
-// Starting the Express server
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  socket.on('sendMessage', async (data) => {
+    const { sender, recipient, message } = data;
+    const newMessage = new ChatMessage({ sender, recipient, message });
+    await newMessage.save();
+    io.emit('receiveMessage', newMessage);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('A user disconnected');
+  });
 });
 
-
+// Starting the Express server
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});

@@ -67,3 +67,24 @@ export const getUserCount = async () => {
     throw error;
   }
 };
+
+// New functions for chat messages
+export const getChatMessages = async (userId1, userId2) => {
+  try {
+    const response = await axios.get(`http://localhost:5051/api/chat/${userId1}/${userId2}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching chat messages:', error);
+    throw error;
+  }
+};
+
+export const sendChatMessage = async (messageData) => {
+  try {
+    const response = await axios.post('http://localhost:5051/api/chat', messageData);
+    return response.data;
+  } catch (error) {
+    console.error('Error sending chat message:', error);
+    throw error;
+  }
+};
