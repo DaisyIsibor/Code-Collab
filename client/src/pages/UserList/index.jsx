@@ -39,6 +39,7 @@ const UserList = () => {
         <ul>
           {users.map((user) => (
             <li key={user._id}>
+              <img src={`/images/${user.photo}`} alt={user.username}/>
               <Link to={`/users/${user._id}`}>{user.username}</Link>
             </li>
           ))}

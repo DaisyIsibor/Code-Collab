@@ -4,6 +4,11 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './db/connection.js';
+import path from 'path';
+import { fileURLToPath } from 'url'; 
+
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename); // get the name of the directory
 
 // Load environment variables
 dotenv.config();
@@ -21,6 +26,8 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
+
+app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
 // Routes
 import userRoutes from './routes/user.js';

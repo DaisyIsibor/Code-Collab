@@ -25,7 +25,6 @@
 // }
 import Auth from '../../utils/auth.js';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { updateProfile, getUserById } from '../../utils/api.js';
 import './style.css';
 

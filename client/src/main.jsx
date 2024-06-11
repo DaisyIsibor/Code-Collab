@@ -16,6 +16,7 @@ import Auth from './utils/auth';
 import './index.css'; // Global CSS import
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { UserProvider } from './UserContext';
+import Navigation from './components/Navigation';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
   return (
     <Router>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Navigation></Navigation>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<RegisterForm />} />
