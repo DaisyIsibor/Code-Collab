@@ -1,15 +1,20 @@
+// This file displays the details of a specific user
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getUserById } from '../../utils/api';
 import './style.css';
 
+// Getting user data
 const UserDetail = () => {
   const { userId } = useParams();
+  // State to hold the user data
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
+ // Fetch user details when the component mounts or userId changes
+ useEffect(() => {
+  const fetchUser = async () => {
+    try {
+      // Fetch user data by ID using API
         const data = await getUserById(userId);
         setUser(data);
       } catch (error) {
@@ -24,6 +29,7 @@ const UserDetail = () => {
     return <div>Loading...</div>;
   }
 
+  // Display user details
   return (
     <div className="user-detail-container">
       <h2>{user.username}'s Profile</h2>
