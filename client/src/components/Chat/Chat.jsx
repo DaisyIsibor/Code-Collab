@@ -41,10 +41,8 @@ const Chat = ({ userId, recipientId }) => {
   const handleSendMessage = async () => {
     if (newMessage.trim()) {
       const messageData = { sender: userId, recipient: recipientId, message: newMessage.trim() };
-      socket.emit('sendMessage', messageData);
-      await sendChatMessage(messageData);
-      setMessages((prevMessages) => [...prevMessages, messageData]);
-      setNewMessage('');
+      socket.emit('sendMessage', messageData); // Emit the message to the server
+      setNewMessage(''); // Clear the input field immediately
     }
   };
 

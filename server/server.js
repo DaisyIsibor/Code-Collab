@@ -50,11 +50,24 @@ app.use('/api/chat', chatRoutes);
 io.on('connection', (socket) => {
   console.log('A user connected');
 
+  socket.on('joinRoom', ({ userId, recipientId }) => {
+    const roomName = [userId, recipientId].sort().join('-');
+    socket.join(roomName);
+    console.log(`User ${userId} joined room ${roomName}`);
+  });
+
+  socket.on('leaveRoom', ({ userId, recipientId }) => {
+    const roomName = [userId, recipientId].sort().join('-');
+    socket.leave(roomName);
+    console.log(`User ${userId} left room ${roomName}`);
+  });
+
   socket.on('sendMessage', async (data) => {
     const { sender, recipient, message } = data;
     const newMessage = new ChatMessage({ sender, recipient, message });
     await newMessage.save();
-    io.emit('receiveMessage', newMessage);
+    const roomName = [sender, recipient].sort().join('-');
+    io.to(roomName).emit('receiveMessage', newMessage);
   });
 
   socket.on('disconnect', () => {
