@@ -28,7 +28,8 @@ const App = () => {
   return (
     <Router>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      <Navigation></Navigation>
+      {/* Render Navigation bar to each page */}
+      <Navigation></Navigation> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<RegisterForm />} />
