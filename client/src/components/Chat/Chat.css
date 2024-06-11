@@ -1,0 +1,24 @@
+.chat-messages {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #e1b3ef;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .message-sent {
+    text-align: right;
+    background-color: #9ccfe4;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .message-received {
+    text-align: left;
+    background-color: #f1f0f0;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
