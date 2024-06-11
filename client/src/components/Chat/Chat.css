@@ -1,14 +1,14 @@
 .chat-messages {
     height: 300px;
     overflow-y: auto;
-    border: 1px solid #ccc;
+    border: 1px solid #e1b3ef;
     padding: 10px;
     margin-bottom: 10px;
   }
   
   .message-sent {
     text-align: right;
-    background-color: #daf8cb;
+    background-color: #9ccfe4;
     margin: 5px 0;
     padding: 5px;
     border-radius: 5px;
