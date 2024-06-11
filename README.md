@@ -2,17 +2,18 @@
 - A website for individuals who code to collobrate! 
 
 ## Table of Contents 
-- [Description](#description)
-- [User Story](#user-story)
-- [Acceptance Criteria](#acceptance-criteria)
-- [Technologies Used](#technologies-used)
-- [Installation](installation)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Live Link](#live-link)
-- [Questions](#questions)
-- [License](#license)
-- [Credits](#credits)
+- [Code-Collab](#code-collab)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [User Story](#user-story)
+  - [Acceptance Criteria](#acceptance-criteria)
+  - [Technologies Used](#technologies-used)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Screenshots](#screenshots)
+  - [Live Link](#live-link)
+  - [License](#license)
+  - [Credits](#credits)
 
 ## Description
 - Our motivation for this project was launched after a discussion about connecting with each other, and our classmates, after our boot camp has ended. We aimed to build an application where developers could connect and further build on their skills. We also wanted to provide a welcoming space for developers of all levels to collobrate and the classification for developers as either a mentor, collobrator or study buddy, was introduced. 
@@ -109,3 +110,4 @@ University of Toronto. (2023). Coding Boot Camp [Source Code].
 
 Using the Effect Hook. (n.d.). React https://legacy.reactjs.org/docs/hooks-effect.html
 
+...
