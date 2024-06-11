@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../utils/api';
 import AuthService from '../utils/auth';
+import './style.css';
 
 const RegisterForm = () => {
-  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [formState, setFormState] = useState({ username: '', email: '', password: ''});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -29,36 +30,52 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Username:</label>
+    <div className="signupFrm">
+    <form onSubmit={handleSubmit} className="form">
+    <h1 class="title">Sign up</h1>
+
+      <div className="inputContainer">
+        
         <input
+        className="input"
           type="text"
           name="username"
           value={formState.username}
           onChange={handleChange}
+          required
         />
+        <label className="label">Username:</label>
       </div>
-      <div>
-        <label>Email:</label>
+
+      <div className="inputContainer">
         <input
+        className="input"
           type="email"
+          
           name="email"
           value={formState.email}
           onChange={handleChange}
+          required
         />
+        <label className="label">Email</label>
+
       </div>
-      <div>
-        <label>Password:</label>
+
+      <div className="inputContainer">
         <input
           type="password"
+          className="input"
           name="password"
           value={formState.password}
           onChange={handleChange}
+          required
         />
+        <label className="label">Password</label>
       </div>
-      <button type="submit">Register</button>
+
+      <button type="submit" className="submitBtn">Sign up</button>
     </form>
+    </div>
   );
 };
 
