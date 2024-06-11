@@ -27,6 +27,7 @@ import Auth from '../utils/auth';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { updateProfile, getUserById } from '../utils/api.js';
+// import './Profile/style.css';
 
 const Profile = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,9 @@ const Profile = () => {
     bio:'',
   });
 
+  // useEffect hook to fetch user data and set form data with the response
   useEffect(() => {
+    // Get user data and update state
     getUserById (Auth.getProfile().userId).then(data => {
       console.log(data)
       setFormData({
@@ -59,8 +62,8 @@ const Profile = () => {
 }, [])
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
+    const { name, value } = e.target; //destructuring to extract name and value properties from the event's target (the input element)
+    setFormData({ 
       ...formData,
       [name]: value,
     });
@@ -108,10 +111,19 @@ const Profile = () => {
         <label>Location:</label>
         <input type="text" name="location" value={formData.location} onChange={handleChange} />
       </div>
-      <div>
+      {/* <div>
         <label>Role:</label>
         <input type="text" name="role" value={formData.role} onChange={handleChange} />
-      </div>
+      </div> */}
+      <label>Role:</label>
+        <select name="role" id="role" value={formData.role} onChange={handleChange}> 
+          <option value="" disabled>Select an option</option>
+          <option value="none">None</option>
+          <option value="observer">Observer</option>
+          <option value="studybuddy">Study Buddy</option>
+          <option value="mentor">Mentor</option>
+          <option value="collaborator">Collaborator</option>
+        </select>
       <div>
         <label>Bio:</label>
         <textarea type="text" name="bio" value={formData.bio} onChange={handleChange} ></textarea>
