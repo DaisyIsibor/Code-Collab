@@ -1,43 +1,41 @@
 import decode from 'jwt-decode';
 
 class AuthService {
+  // Decoded the user profile from the token
   getProfile() {
     return decode(this.getToken());
   }
 
+  // Checked if the user was logged in by verifying the token
   loggedIn() {
-    // Checks if there is a saved token and it's still valid
     const token = this.getToken();
     return !!token && !this.isTokenExpired(token);
   }
 
+  // Checked if the token was expired
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
-      if (decoded.exp < Date.now() / 1000) {
-        return true;
-      } else return false;
+      return decoded.exp < Date.now() / 1000;
     } catch (err) {
       return false;
     }
   }
 
+  // Retrieved the token from localStorage
   getToken() {
-    // Retrieves the user token from localStorage
     return localStorage.getItem('id_token');
   }
 
+  // Stored the token in localStorage and redirected to the /users page
   login(idToken) {
-    // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
-
-    window.location.assign('/');
+    window.location.assign('/users');
   }
 
+  // Removed the token from localStorage and redirected to the home page
   logout() {
-    // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
-    // this will reload the page and reset the state of the application
     window.location.assign('/');
   }
 }

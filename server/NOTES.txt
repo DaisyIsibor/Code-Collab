@@ -36,6 +36,23 @@ https://www.loginradius.com/blog/engineering/nodejs-and-mongodb-application-auth
 
 https://www.mongodb.com/community/forums/t/argument-of-type-usenewurlparser-boolean-useunifiedtopology-boolean-is-not-assignable-to-parameter-of-type/169033/3
 
+https://www.angularminds.com/blog/protected-routes-in-react-router-authentication-and-authorization
+
+https://www.reddit.com/r/reactjs/comments/16zojkf/how_should_a_protected_route_be_created_with/
+
+https://legacy.reactjs.org/blog/2022/03/29/react-v18.html
+
+https://stackoverflow.com/questions/66794972/react-router-dom-does-not-contain-an-export-named-usehistory
+
+https://react.dev/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis
+
+https://reactjs.org/link/switch-to-createroot
+
+https://formspree.io/
+
+
+
+
 ==================================================
 
 EXTRAS:
@@ -55,20 +72,45 @@ EXTRAS:
 /Code Collab
 |-- /client
 |   |-- // React application files
+|   |-- /public
+|   |   |-- index.html
 |   |-- /src
 |       |-- // Frontend source files
+|       |-- /components
+|       |   |-- RegisterForm.jsx
+|       |   |-- LoginForm.jsx // New file for login form
+|       |-- /pages
+|       |   |-- Login
+|       |   |   |-- index.jsx
+|       |   |   |-- style.css
+|       |   |-- Apply.jsx
+|       |   |-- Home.jsx
+|       |   |-- Mentors.jsx
+|       |   |-- Profile.jsx
+|       |   |-- Signup.jsx
+|       |   |-- UsersList.jsx // New file for displaying all users
+|       |-- /utils
+|       |   |-- api.js
+|       |   |-- auth.js // Renamed from utils.js for clarity
+|       |-- App.js // Main application component with routing
+|       |-- index.js // React entry point
 |-- /server
 |   |-- server.js
 |   |-- /db
 |   |   |-- connection.js
+|   |-- /controllers
+|   |   |-- userController.js
+|   |   |-- reviewController.js
 |   |-- /routes
 |   |   |-- user.js
+|   |   |-- review.js
 |   |-- /models
 |   |   |-- user.js
 |   |   |-- review.js
 |-- config.env
 |-- package.json
 |-- server.js
+|-- README.md
 
 ==================================================
 
@@ -78,5 +120,5 @@ NPM Packages:
 - npm install mongodb express cors mongoose dotenv bcrypt jsonwebtoken
 
 ==================================================
-..
+...
 
