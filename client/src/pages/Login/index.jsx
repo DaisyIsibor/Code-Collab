@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import './style.css';
 import { loginUser } from '../../utils/api';
 import AuthService from '../../utils/auth';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -33,23 +34,38 @@ export default function Login() {
     }
   };
 
-  return (
-    <div>
-      <h2>Please login to your account!</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control type="text" placeholder="Enter username" required />
-        </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" required />
+return (
+  <div className="loginFrm">
+    <Form onSubmit={handleSubmit} className="form">
+
+      <h2 className="title">Login</h2>
+
+      <div className="inputContainer">
+        <Form.Group className="mb-3" controlId="formBasicUsername">
+          
+          <Form.Control type="text" placeholder="Enter username" className="form-control" required />
+          <Form.Label className="label">Username</Form.Label>
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </div>
-  );
+      </div>
+
+      <div className="inputContainer">
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Control type="password" placeholder="Password" className="form-control" required />
+          <Form.Label className="label">Password</Form.Label>
+        </Form.Group>
+      </div>
+
+      <Button variant="primary" type="submit" className="btn-primary">
+        Submit
+      </Button>
+
+      <div className="signup-link">
+          <p>Don't have an account? <Link to="/Signup">Sign up</Link></p>
+        </div>
+
+
+    </Form>
+  </div>
+);
 }
