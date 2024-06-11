@@ -83,7 +83,12 @@ const Profile = () => {
       </div>
       <div>
         <label>Meeting Preference:</label>
-        <input type="text" name="Meeting Preferences" value={formData.meetingPreference} onChange={handleChange} />
+        {/* <input type="text" name="Meeting Preference" value={formData.meetingPreference} onChange={handleChange} /> */}
+        <select name="meetingPreference" id="meetingPreference">
+          <option value="" disabled>Select an option</option>
+          <option value="inPerson">In Person</option>
+          <option value="online">Online</option>
+        </select>
       </div>
       <div>
         <label>Location:</label>
