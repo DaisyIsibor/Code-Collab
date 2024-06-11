@@ -38,7 +38,6 @@ export const updateProfile = async (userId, updatedData) => {
 // Function to fetch user details by ID
 export const getUserById = async (userId) => {
   try {
-    // Fetching user details by ID, including additional fields for the profile
     const response = await axios.get(`${baseURL}/${userId}`);
     return response.data;
   } catch (error) {
