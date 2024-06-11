@@ -24,26 +24,43 @@
 //   );
 // }
 import Auth from '../utils/auth';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { updateProfile, getUserById } from '../utils/api.js';
 
 const Profile = () => {
-  const [formData, setformData] = useState({
-    firstname: '',
-    lastname: '',
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
     email: '', 
     username: '',
-    password: '',
     codingLanguages: '',
     meetingPreference: '',
-    connectionHistory: '',
-    reviews: '',
     role: '',
+    location: '',
+    bio:'',
   });
+
+  useEffect(() => {
+    getUserById (Auth.getProfile().userId).then(data => {
+      console.log(data)
+      setFormData({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email, 
+      username: data.username,
+      codingLanguages: data.codingLanguages,
+      meetingPreference: data.meetingPreference,
+      role: data.role,
+      location: data.location,
+      bio: data.bio,
+       })
+    })
+}, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setformData({
+    setFormData({
       ...formData,
       [name]: value,
     });
@@ -52,9 +69,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await
-      axios.put('/profile', {...formData, userId: Auth.getProfile().setformData});
-      console.log(response.data);
+      const response = await updateProfile ({userId:Auth.getProfile().userId, ...formData})
     } catch (error) {
       console.error('There was an error creating your profile!', error);
     }
@@ -64,27 +79,26 @@ const Profile = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label>First Name:</label>
-        <input type="text" name="firstname" value={formData.firstname} onChange={handleChange} />
+        <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
       </div>
       <div>
         <label>Last Name:</label>
-        <input type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
+        <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
       </div>
       <div>
         <label>Email:</label>
-        <input type="text" name="lastname" value={formData.email} onChange={handleChange} />
+        <input type="text" name="email" value={formData.email} onChange={handleChange} />
       </div>
       <div>
-        <label>Bio:</label>
-        <input type="text" name="bio" value={formData.bio} onChange={handleChange} />
+        <label>Username:</label>
+        <input type="text" name="username" value={formData.username} onChange={handleChange} />
       <div>
         <label>Coding Languages:</label>
         <input type="text" name="codingLanguages" value={formData.codingLanguages} onChange={handleChange} />
       </div>
       <div>
         <label>Meeting Preference:</label>
-        {/* <input type="text" name="Meeting Preference" value={formData.meetingPreference} onChange={handleChange} /> */}
-        <select name="meetingPreference" id="meetingPreference">
+        <select name="meetingPreference" id="meetingPreference" value={formData.meetingPreference} onChange={handleChange}> 
           <option value="" disabled>Select an option</option>
           <option value="inPerson">In Person</option>
           <option value="online">Online</option>
@@ -92,11 +106,15 @@ const Profile = () => {
       </div>
       <div>
         <label>Location:</label>
-        <input type="text" name="codingLanguagelocation" value={formData.location} onChange={handleChange} />
+        <input type="text" name="location" value={formData.location} onChange={handleChange} />
       </div>
       <div>
         <label>Role:</label>
         <input type="text" name="role" value={formData.role} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Bio:</label>
+        <textarea type="text" name="bio" value={formData.bio} onChange={handleChange} ></textarea>
       </div>
       </div>
       <button type="submit">Update Profile</button>
