@@ -50,6 +50,10 @@ https://reactjs.org/link/switch-to-createroot
 
 https://formspree.io/
 
+https://www.mailgun.com/blog/email/how-to-send-transactional-email-in-a-nodejs-app-using-the-mailgun-api/
+
+https://app.mailgun.com/app/sending/domains/sandbox2be6689df1874b3ea3f61458e9647916.mailgun.org
+
 
 
 

@@ -22,16 +22,23 @@ app.use(cors());
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
 
+// Environment variables route
+app.get('/api/env', (req, res) => {
+  res.json({
+    EMAIL_FROM: process.env.EMAIL_FROM,
+  });
+});
+
 // Routes
 import userRoutes from './routes/user.js';
 import reviewRoutes from './routes/review.js';
+import emailRoutes from './routes/email.js'; 
 
 app.use('/api/users', userRoutes); // Mount user routes under /api/users endpoint
 app.use('/api/reviews', reviewRoutes); // Mount review routes under /api/reviews endpoint
+app.use('/api', emailRoutes);
 
 // Starting the Express server
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
-
-

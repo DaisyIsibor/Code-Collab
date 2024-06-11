@@ -25,4 +25,3 @@ router.get('/user/:userId', reviewController.getReviewsByUser);
 router.get('/for/:userId', reviewController.getReviewsForUser);
 
 export default router;
-

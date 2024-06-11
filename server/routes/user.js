@@ -1,6 +1,6 @@
 import express from 'express';
 import userController from '../controllers/userController.js';
-import User from '../models/user.js';  // Import the User model
+import authMiddleware from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
@@ -11,85 +11,30 @@ router.post('/register', userController.register);
 router.post('/login', userController.login);
 
 // Update profile route
-router.put('/profile', userController.updateProfile);
+router.put('/profile', authMiddleware, userController.updateProfile);
 
 // Get connection history route
-router.get('/connections', userController.getConnectionHistory);
+router.get('/connections', authMiddleware, userController.getConnectionHistory);
 
 // Add review route
-router.post('/review', userController.addReview);
+router.post('/review', authMiddleware, userController.addReview);
 
 // Get all users
-router.get('/', async (req, res) => {
-    try {
-        const users = await User.find();
-        res.status(200).json(users);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Error retrieving users' });
-    }
-});
+router.get('/', userController.getAllUsers);
 
 // Get a single user by ID
-router.get('/:id', async (req, res) => {
-    try {
-        const user = await User.findById(req.params.id).populate('connectionHistory reviews');
-        if (!user) return res.status(404).json({ message: 'User not found' });
-        res.status(200).json(user);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Error retrieving user' });
-    }
-});
+router.get('/:id', userController.getUserById);
 
 // Create a new user
-router.post('/', async (req, res) => {
-    try {
-        const newUser = new User({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            username: req.body.username,
-            password: req.body.password,
-            bio: req.body.bio,
-            codingLanguages: req.body.codingLanguages,
-            location: req.body.location,
-            photo: req.body.photo,
-            meetingPreference: req.body.meetingPreference,
-            role: req.body.role,
-        });
-
-        const savedUser = await newUser.save();
-        res.status(201).json(savedUser);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Error adding user' });
-    }
-});
+router.post('/', userController.createUser);
 
 // Update a user by ID
-router.patch('/:id', async (req, res) => {
-    try {
-        const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
-        if (!updatedUser) return res.status(404).json({ message: 'User not found' });
-        res.status(200).json(updatedUser);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Error updating user' });
-    }
-});
+router.patch('/:id', userController.updateUser);
 
 // Delete a user by ID
-router.delete('/:id', async (req, res) => {
-    try {
-        const deletedUser = await User.findByIdAndDelete(req.params.id);
-        if (!deletedUser) return res.status(404).json({ message: 'User not found' });
-        res.status(200).json({ message: 'User deleted' });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Error deleting user' });
-    }
-});
+router.delete('/:id', userController.deleteUser);
+
+// Route to get the logged-in user's data
+router.get('/me', authMiddleware, userController.getLoggedInUser);
 
 export default router;
-

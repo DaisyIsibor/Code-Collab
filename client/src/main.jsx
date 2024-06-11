@@ -14,6 +14,8 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Auth from './utils/auth';
 import './index.css'; // Global CSS import
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { UserProvider } from './UserContext';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -23,20 +25,22 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/users" element={<ProtectedRoute><UserList /></ProtectedRoute>} />
-        <Route path="/users/:userId" element={<ProtectedRoute><UserDetail /></ProtectedRoute>} />
-        <Route path="/apply" element={<ProtectedRoute><Apply /></ProtectedRoute>} />
-        <Route path="/mentor" element={<ProtectedRoute><Mentors /></ProtectedRoute>} />
-        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-    </Router>
+    <UserProvider>
+      <Router>
+        <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/users" element={<ProtectedRoute><UserList /></ProtectedRoute>} />
+          <Route path="/users/:userId" element={<ProtectedRoute><UserDetail /></ProtectedRoute>} />
+          <Route path="/apply" element={<ProtectedRoute><Apply /></ProtectedRoute>} />
+          <Route path="/mentor" element={<ProtectedRoute><Mentors /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </Router>
+    </UserProvider>
   );
 };
 
