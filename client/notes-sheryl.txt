@@ -1,0 +1,8 @@
+Deploying on Render:
+
+- Sign in to Render using GitHub
+- Then go to New and Web Service
+- Pick your project 
+- Change start command...(optional, I changed to npm start)
+- Select Free
+- Create web service

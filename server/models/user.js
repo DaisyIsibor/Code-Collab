@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     },
     password: { type: String, required: true },
     bio: String,
-    codingLanguages: [String],
+    codingLanguages: String,
     location: String,
     photo: String, // Store the path to the uploaded photo
     meetingPreference: { type: String, enum: ['In Person', 'Online'] },
