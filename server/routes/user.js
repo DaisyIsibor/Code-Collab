@@ -19,6 +19,17 @@ router.get('/connections', userController.getConnectionHistory);
 // Add review route
 router.post('/review', userController.addReview);
 
+// Get the total user count
+router.get('/userCount', async (req, res) => {
+    try {
+        const count = await User.countDocuments({});
+        res.status(200).json({ count });
+    } catch (error) {
+        console.error('Error retrieving user count:', error);
+        res.status(500).json({ message: 'Error retrieving user count' });
+    }
+});
+
 // Get all users
 router.get('/', async (req, res) => {
     try {
@@ -92,4 +103,3 @@ router.delete('/:id', async (req, res) => {
 });
 
 export default router;
-

@@ -57,3 +57,14 @@ export const getAllUsers = async () => {
     throw error;
   }
 };
+
+// Function to get the user count
+export const getUserCount = async () => {
+  try {
+    const response = await axios.get(`${baseURL}/userCount`);
+    return response.data.count;
+  } catch (error) {
+    console.error('Error fetching user count:', error);
+    throw error;
+  }
+};
