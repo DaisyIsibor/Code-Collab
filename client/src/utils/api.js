@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:5051/api/users';
+const baseURL = 'http://localhost:5051/api/users'; // This is how vite knows where to go 
 
 // Function to register a user
 export const registerUser = async (userData) => {
@@ -27,7 +27,7 @@ export const loginUser = async (credentials) => {
 // Function to update user profile
 export const updateProfile = async (userId, updatedData) => {
   try {
-    const response = await axios.put(`${baseURL}/profile`, updatedData);
+    const response = await axios.put(`${baseURL}/profile`, userId, updatedData);
     return response.data;
   } catch (error) {
     console.error('Error updating user profile:', error);

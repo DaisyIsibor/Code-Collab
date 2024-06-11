@@ -13,8 +13,12 @@ import Mentors from './pages/Mentors';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Auth from './utils/auth';
+
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import { UserProvider } from './UserContext';
+import Navigation from './components/Navigation';
 
 // Main App component
 const App = () => {
@@ -28,6 +32,8 @@ const App = () => {
   return (
     <Router>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      {/* Render Navigation bar to each page */}
+      <Navigation></Navigation> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<RegisterForm />} />

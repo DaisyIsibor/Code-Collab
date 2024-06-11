@@ -61,26 +61,28 @@ userController.login = async (req, res) => {
 // Function to handle profile creation and update
 userController.updateProfile = async (req, res) => {
     try {
-        const { firstName, lastName, bio, codingLanguages, location, photo, meetingPreference } = req.body;
+        const { firstName, lastName, email, bio, username, codingLanguages, location, meetingPreference, role } = req.body;
 
-        const userId = req.user.userId;
+        const userId = req.body.userId;
 
         await User.findByIdAndUpdate(userId, {
             $set: {
                 firstName,
                 lastName,
+                email,
                 bio,
+                username,
                 codingLanguages,
                 location,
-                photo,
-                meetingPreference
+                meetingPreference,
+                role,
             }
         });
 
         res.json({ message: 'Profile updated successfully' });
     } catch (error) {
-        console.error('Error updating profile:', error);
-        res.status(500).json({ message: 'Internal server error' });
+        console.error('Error updating profile:', error.message);
+        res.status(500).json({ message: error.message });
     }
 };
 

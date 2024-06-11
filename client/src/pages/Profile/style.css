@@ -1,0 +1,22 @@
+#submitButton {
+    color: rgb(127, 210, 244);
+    background-color: white;
+    border-radius: 6px;
+    &:hover { 
+        color: black;
+    }
+}
+
+label {
+    display: inline-block;
+    /* float: left; */
+    clear: left;
+    width: 200px;
+    text-align: left;
+}
+
+input {
+    display: inline-block;
+    /* float: left; */
+}
+
