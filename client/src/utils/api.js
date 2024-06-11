@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:5051/api/users';
+const baseURL = 'http://localhost:5051/api/users'; // This is how vite knows where to go 
 
 // Function to register a user
 export const registerUser = async (userData) => {
