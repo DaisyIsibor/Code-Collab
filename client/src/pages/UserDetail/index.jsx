@@ -6,15 +6,16 @@ import './style.css';
 
 // Getting user data
 const UserDetail = () => {
+  // // Get userId from the URL
   const { userId } = useParams();
-  // State to hold the user data
+  // Initializing user state to null
   const [user, setUser] = useState(null);
 
  // Fetch user details when the component mounts or userId changes
  useEffect(() => {
   const fetchUser = async () => {
     try {
-      // Fetch user data by ID using API
+      // Fetch user data by ID using API call
         const data = await getUserById(userId);
         setUser(data);
       } catch (error) {
@@ -22,6 +23,7 @@ const UserDetail = () => {
       }
     };
 
+    // Call when component mounts
     fetchUser();
   }, [userId]);
 

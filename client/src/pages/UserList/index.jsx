@@ -6,20 +6,20 @@ import './style.css';
 
 // UserList component to display a list of all users
 const UserList = () => {
-  // State to hold the list of users
+  // Initializing users state to an empty array
   const [users, setUsers] = useState([]);
-  // State to manage loading state
+  // Initialize loading state to true
   const [loading, setLoading] = useState(true);
   // State to manage any errors
   const [error, setError] = useState(null);
 
-  // Fetch all users when the component mounts
+  // Fetch all users
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        // Fetch all users using an API utility
+        // Fetch all users using API call
         const data = await getAllUsers();
-        // Set the users data to the state
+        // Update users with API data
         setUsers(data);
         // Set loading to false once data is fetched
         setLoading(false);
@@ -31,6 +31,7 @@ const UserList = () => {
       }
     };
 
+    // Call fetchUsers when component mounts
     fetchUsers();
   }, []);
 
