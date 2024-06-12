@@ -38,7 +38,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const updatedData = { ...profileData };
+      const updatedData = { ...profileData, userId };
       await updateProfile(userId, updatedData);
       alert('Profile updated successfully!');
     } catch (error) {
