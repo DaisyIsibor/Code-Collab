@@ -68,3 +68,47 @@
 .m-2 {
   margin: 0.5rem !important;
 }
+
+
+.header-container {
+  position: relative;
+  width: 100%;
+  background-color: #17a2b8; /* Bootstrap bg-info color */
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-logout {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem; 
+  border: 2px solid blue; 
+  border-radius: 15px; 
+  background-color: white; 
+  color: blue; 
+  font-size: 0.875rem; 
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: blue; 
+  color: white; 
+}
