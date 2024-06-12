@@ -88,3 +88,24 @@ export const sendChatMessage = async (messageData) => {
     throw error;
   }
 };
+
+// Functions for reviews
+export const getReviewsForUser = async (userId) => {
+  try {
+    const response = await axios.get(`http://localhost:5051/api/reviews/for/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching reviews for user:', error);
+    throw error;
+  }
+};
+
+export const addReview = async (reviewData) => {
+  try {
+    const response = await axios.post('http://localhost:5051/api/reviews', reviewData);
+    return response.data;
+  } catch (error) {
+    console.error('Error adding review:', error);
+    throw error;
+  }
+};

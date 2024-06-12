@@ -26,6 +26,9 @@ reviewController.addReview = async (req, res) => {
         // Save the review to the database
         await newReview.save();
 
+        // Populate the userId with username
+        await newReview.populate('userId', 'username');
+
         res.json({ message: 'Review added successfully', review: newReview });
     } catch (error) {
         console.error('Error adding review:', error);
@@ -36,7 +39,7 @@ reviewController.addReview = async (req, res) => {
 // Function to get all reviews
 reviewController.getAllReviews = async (req, res) => {
     try {
-        const reviews = await Review.find();
+        const reviews = await Review.find().populate('userId', 'username');
         res.status(200).json(reviews);
     } catch (error) {
         console.error('Error retrieving reviews:', error);
@@ -47,7 +50,7 @@ reviewController.getAllReviews = async (req, res) => {
 // Function to get a single review by ID
 reviewController.getReviewById = async (req, res) => {
     try {
-        const review = await Review.findById(req.params.id);
+        const review = await Review.findById(req.params.id).populate('userId', 'username');
         if (!review) return res.status(404).json({ message: 'Review not found' });
         res.status(200).json(review);
     } catch (error) {
@@ -59,7 +62,7 @@ reviewController.getReviewById = async (req, res) => {
 // Function to update a review by ID
 reviewController.updateReview = async (req, res) => {
     try {
-        const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }).populate('userId', 'username');
         if (!updatedReview) return res.status(404).json({ message: 'Review not found' });
         res.status(200).json(updatedReview);
     } catch (error) {
@@ -83,7 +86,7 @@ reviewController.deleteReview = async (req, res) => {
 // Function to get reviews by user ID
 reviewController.getReviewsByUser = async (req, res) => {
     try {
-        const reviews = await Review.find({ userId: req.params.userId });
+        const reviews = await Review.find({ userId: req.params.userId }).populate('userId', 'username');
         res.status(200).json(reviews);
     } catch (error) {
         console.error('Error retrieving reviews:', error);
@@ -94,7 +97,7 @@ reviewController.getReviewsByUser = async (req, res) => {
 // Function to get reviews for a specific user ID
 reviewController.getReviewsForUser = async (req, res) => {
     try {
-        const reviews = await Review.find({ reviewedUserId: req.params.userId });
+        const reviews = await Review.find({ reviewedUserId: req.params.userId }).populate('userId', 'username');
         res.status(200).json(reviews);
     } catch (error) {
         console.error('Error retrieving reviews:', error);
