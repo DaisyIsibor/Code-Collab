@@ -46,7 +46,7 @@ THEN I am presented with the developer's name and navigation with titles corresp
 - Bcrypt 5.1.1
 - JWT Web Token 9.0.2
 - Express 4.19.2
-- Mongodb 6.7.0
+- MongoDB 6.7.0
 - Mongoose 8.4.1
 - Nodemon 3.0.1
 

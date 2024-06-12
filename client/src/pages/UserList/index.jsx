@@ -86,7 +86,7 @@ const UserList = () => {
               <img src={`/images/${user.photo}`} alt={user.username}/>
               <Link to={`/users/${user._id}`}>{user.username}</Link>
               {/* ADD CODING LANGUAGES */}
-              <p>{user.codingLanguage}</p>
+              <p>{user.codingLanguages}</p>
               {/* ADD LOCATION */}
               <p> {user.location}</p>
             </li>
