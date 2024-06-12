@@ -1,28 +1,3 @@
-// import Form from 'react-bootstrap/Form';
-
-// export default function Profile() {
-//   return (
-//     <div>
-//         <h2>Create your Profile!</h2>
-//         <h3>Please fill out the fields below to create your profile</h3>
-//     <Form>
-//       <Form.Group controlId="formFile" className="mb-3">
-//         <Form.Label>Default file input example</Form.Label>
-//         <Form.Control type="file" />
-//       </Form.Group>
-//       <Form.Group controlId="formFileSm" className="mb-3">
-//         <Form.Label>Small file input example</Form.Label>
-//         <Form.Control type="file" size="sm" />
-//       </Form.Group>
-//       <Form.Group controlId="formFileLg" className="mb-3">
-//         <Form.Label>Large file input example</Form.Label>
-//         <Form.Control type="file" size="lg" />
-//       </Form.Group>
-//     </Form>
-//     {/* </> */}
-//     </div>
-//   );
-// }
 import Auth from '../../utils/auth.js';
 import React, { useState, useEffect } from 'react';
 import { updateProfile, getUserById } from '../../utils/api.js';
@@ -79,6 +54,30 @@ const Profile = () => {
     }
   };
 
+  const UserList = () => {
+    const [users, setUsers] = useState([]);
+
+    useInsertionEffect(() => {
+      fetch('/api/users')
+      .then(response => response.json())
+      .then(data => setUsers(data));
+    }, []);
+
+    const deleteUser = (userId) => {
+      fetch(`/api/users/${userId}`, {
+        method: 'DELETE',
+      })
+      .then(response => {
+        if (response.ok) {
+          setUsers(users.filter(user => user.id !== userId));
+        } else {
+          console.error('Failed to delete user');
+        }
+      })
+      .catch(error => console.error('An error occurred', error));
+    }
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -130,8 +129,15 @@ const Profile = () => {
         <textarea type="text" name="bio" value={formData.bio} onChange={handleChange} ></textarea>
       </div>
       </div>
-      <button id="submitButton" type="submit">Edit Profile</button>
-      <button id="submitButton" type="submit">Delete Profile</button>
+      <button id="submitButtonEdit" type="submitEdit">Edit Profile</button>
+      <button id="submitButtonDelete" type="submitDelete">Delete Profile</button>
+      {/* <ul>
+        {users.map(user => (
+          <li key={user.id}>
+            {user.name} <button onClick={() => deleteUser(user.id)}>Delete Profile</button>
+          </li>
+        ))}
+      </ul> */}
     </form>
   );
 };
@@ -207,21 +213,3 @@ export default Profile;
 // });
 
 
-
-
-
-
-// function FormExample() {
-//   const { Formik } = formik;
-
-//   const schema = yup.object().shape({
-//     firstName: yup.string().required(),
-//     lastName: yup.string().required(),
-//     username: yup.string().required(),
-//     email: yup.string().required(),
-//     password: yup.string().required(),
-//     codingLanguages: yup.string().required(),
-//     meetingPreferences: yup.string().required(),
-//     file: yup.mixed().required(),
-//     terms: yup.bool().required().oneOf([true], 'terms must be accepted'),
-//   });
