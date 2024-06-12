@@ -90,6 +90,7 @@ export const sendChatMessage = async (messageData) => {
   }
 };
 
+
 // Function to add a review
 export const addReview = async (reviewData) => {
   try {
@@ -134,13 +135,27 @@ export const deleteReview = async (reviewId, reviewData) => {
   }
 };
 
-// Function to delete a user
+// // Function to delete a user
+// export const deleteUser = async (userId) => {
+//   try {
+//     const response = await axios.delete(`${baseURL}/users/${userId}`);
+//     return response.data;
+//   } catch (error) {
+//     console.error('Error deleting user:', error.response ? error.response.data : error);
+//     throw error.response ? error.response.data : error;
+//   }
+// };
+
 export const deleteUser = async (userId) => {
-  try {
-    const response = await axios.delete(`${baseURL}/users/${userId}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error deleting user:', error.response ? error.response.data : error);
-    throw error.response ? error.response.data : error;
-  }
-};
+  await axios.delete(`${baseURL}/${userId}`)
+  .then(response => {
+    console.log(response)
+    if (response.ok) {
+      return response.data
+    } else {
+      console.error('Failed to delete user');
+    }
+  })
+  .catch(error => console.error('An error occurred', error));
+}
+
