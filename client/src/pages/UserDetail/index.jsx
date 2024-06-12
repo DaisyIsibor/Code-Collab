@@ -22,6 +22,7 @@ const UserDetail = () => {
       try {
         // Fetch user data by ID using API call
         const data = await getUserById(userId);
+        console.log('Fetched user data:', data); // Debug log to check the user data structure
         setUser(data);
       } catch (error) {
         console.error('Error fetching user details:', error);
@@ -36,16 +37,17 @@ const UserDetail = () => {
     return <div>Loading...</div>;
   }
 
+  // Ensure codingLanguages is an array
+  const codingLanguages = Array.isArray(user.codingLanguages) ? user.codingLanguages : [];
+
   // Display user details
   return (
     <div className="user-detail-container">
       <h2>{user.username}'s Profile</h2>
-      <img src={`/images/${user.photo}`} alt={user.username}/>
-      {user.firstName && <p><strong>FirstName: </strong>{user.firstName}</p>}
-      {user.lastName && <p><strong>lastName: </strong>{user.lastName}</p>}
+      <img src={`/images/${user.photo}`} alt={user.username} />
       {user.bio && <p><strong>Bio:</strong> {user.bio}</p>}
-      {user.codingLanguages && user.codingLanguages.length > 0 && (
-        <p><strong>Coding Languages:</strong> {user.codingLanguages.join(', ')}</p>
+      {codingLanguages.length > 0 && (
+        <p><strong>Coding Languages:</strong> {codingLanguages.join(', ')}</p>
       )}
       {user.role && <p><strong>Role:</strong> {user.role}</p>}
       {user.location && <p><strong>Location:</strong> {user.location}</p>}
