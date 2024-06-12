@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { updateProfile, getUserById } from '../../utils/api';
 import AuthService from '../../utils/auth';
+import './style.css';
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
@@ -49,47 +50,47 @@ const Profile = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        First Name:
+      <div className="form-group">
+        <label>First Name:</label>
         <input type="text" name="firstName" value={profileData.firstName} onChange={handleChange} />
-      </label>
-      <label>
-        Last Name:
+      </div>
+      <div className="form-group">
+        <label>Last Name:</label>
         <input type="text" name="lastName" value={profileData.lastName} onChange={handleChange} />
-      </label>
-      <label>
-        Email:
+      </div>
+      <div className="form-group">
+        <label>Email:</label>
         <input type="email" name="email" value={profileData.email} onChange={handleChange} />
-      </label>
-      <label>
-        Username:
+      </div>
+      <div className="form-group">
+        <label>Username:</label>
         <input type="text" name="username" value={profileData.username} onChange={handleChange} />
-      </label>
-      <label>
-        Coding Languages:
+      </div>
+      <div className="form-group">
+        <label>Coding Languages:</label>
         <input type="text" name="codingLanguages" value={profileData.codingLanguages} onChange={handleChange} />
-      </label>
-      <label>
-        Meeting Preference:
+      </div>
+      <div className="form-group">
+        <label>Meeting Preference:</label>
         <input type="text" name="meetingPreference" value={profileData.meetingPreference} onChange={handleChange} />
-      </label>
-      <label>
-        Role:
+      </div>
+      <div className="form-group">
+        <label>Role:</label>
         <select name="role" value={profileData.role} onChange={handleChange}>
           <option value="None">None</option>
           <option value="Study Buddy">Study Buddy</option>
           <option value="Collaborator">Collaborator</option>
           <option value="Mentor">Mentor</option>
         </select>
-      </label>
-      <label>
-        Location:
+      </div>
+      <div className="form-group">
+        <label>Location:</label>
         <input type="text" name="location" value={profileData.location} onChange={handleChange} />
-      </label>
-      <label>
-        Bio:
+      </div>
+      <div className="form-group">
+        <label>Bio:</label>
         <textarea name="bio" value={profileData.bio} onChange={handleChange} />
-      </label>
+      </div>
       <button type="submit">Update Profile</button>
     </form>
   );

@@ -1,5 +1,99 @@
 /* UserDetail style.css */
-.container {
-    padding: 20px;
-  }
-  
+.user-detail-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px auto;
+}
+
+.profile-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.profile-details p {
+  margin: 5px 0;
+}
+
+.reviews-section {
+  margin-bottom: 20px;
+}
+
+.reviews-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reviews-section li {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-form {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: #e0f7fa; /* Light shade of sky blue */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.review-form textarea,
+.review-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.review-form button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue shade */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.review-form button:hover {
+  background-color: #0056b3;
+}
+
+.chat-button {
+  padding: 10px 20px;
+  background-color: #28a745; /* Green shade */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+}
+
+.chat-button:hover {
+  background-color: #218838;
+}
