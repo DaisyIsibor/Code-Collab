@@ -1,3 +1,5 @@
+//
+// This is commented out
 // import Form from 'react-bootstrap/Form';
 
 // export default function Profile() {
@@ -26,11 +28,11 @@
 
 
 
-// ----->
 
+// >>>>>>> main
 import Auth from '../../utils/auth.js';
 import React, { useState, useEffect } from 'react';
-import { updateProfile, getUserById } from '../../utils/api.js';
+import { updateProfile, getUserById, deleteUser } from '../../utils/api.js';
 import './style.css';
 
 const Profile = () => {
@@ -46,7 +48,7 @@ const Profile = () => {
     bio:'',
   });
 
-  // useEffect hook to fetch user data and pre-set form data with the response
+  // useEffect hook to fetch user data and pre-set form data 
   useEffect(() => {
     // Get user data and update state
     // Define by user id and then send data to it 
@@ -81,9 +83,24 @@ const Profile = () => {
     try {
       const response = await updateProfile({ userId: Auth.getProfile().userId, ...formData });
     } catch (error) {
-      console.error('There was an error updating your profile!', error);
+// sheryl/code-work4
+      console.error(error.message);
+// =======
+//       console.error('There was an error updating your profile!', error);
+// >>>>>>> main
     }
   };
+
+  const handleDelete = async (e) => {
+    try {
+      const response = await deleteUser (Auth.getProfile().userId)
+      console.log(response)
+      Auth.logout()
+    }
+    catch(error) {
+      console.error(error.message);
+    }
+  }
 
   return (
     <form className="profile-form" onSubmit={handleSubmit}>
@@ -134,7 +151,19 @@ const Profile = () => {
         <label>Bio:</label>
         <textarea name="bio" value={formData.bio} onChange={handleChange}></textarea>
       </div>
+//
+      <button id="submitButtonEdit" type="submitEdit">Edit Profile</button>
+      <button onClick={handleDelete} id="submitButtonDelete" type="submitDelete">Delete Profile</button>
+      {/* <ul>
+        {users.map(user => (
+          <li key={user.id}>
+            {user.name} <button onClick={() => deleteUser(user.id)}>Delete Profile</button>
+          </li>
+        ))}
+      </ul> */}
+=======
       <button type="submit">Update Profile</button>
+//
     </form>
   );
 };
@@ -213,21 +242,3 @@ export default Profile;
 // });
 
 
-
-
-
-
-// function FormExample() {
-//   const { Formik } = formik;
-
-//   const schema = yup.object().shape({
-//     firstName: yup.string().required(),
-//     lastName: yup.string().required(),
-//     username: yup.string().required(),
-//     email: yup.string().required(),
-//     password: yup.string().required(),
-//     codingLanguages: yup.string().required(),
-//     meetingPreferences: yup.string().required(),
-//     file: yup.mixed().required(),
-//     terms: yup.bool().required().oneOf([true], 'terms must be accepted'),
-//   });

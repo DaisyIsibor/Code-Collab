@@ -69,6 +69,28 @@ const UserList = () => {
   );
 
   return (
+// <<<<<<< sheryl/code-work4
+//     <div>
+//       <h2>All Users</h2>
+//       <p>Total Registered Users: {displayedCount}</p> {/* Display animated user count */}
+//       {users.length > 0 ? (
+//         <ul>
+//           {users.map((user) => (
+//             <li key={user._id}>
+//               <img src={`/images/${user.photo}`} alt={user.username}/>
+//               <Link to={`/users/${user._id}`}>{user.username}</Link>
+//               {/* ADD CODING LANGUAGES */}
+//               <p>{user.codingLanguages}</p>
+//               {/* ADD LOCATION */}
+//               <p> {user.location}</p>
+//             </li>
+//           ))}
+//         </ul>
+//       ) : (
+//         <div>No users found</div>
+//       )}
+//     </div>
+//
     <MDBContainer>
       <MDBTypography tag="h6" className="header-text">
         All Users
@@ -115,7 +137,9 @@ const UserList = () => {
         ))}
       </MDBRow>
     </MDBContainer>
+
   );
+
 };
 
 

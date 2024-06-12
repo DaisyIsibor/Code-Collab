@@ -88,3 +88,16 @@ export const sendChatMessage = async (messageData) => {
     throw error;
   }
 };
+
+export const deleteUser = async (userId) => {
+  await axios.delete(`${baseURL}/${userId}`)
+  .then(response => {
+    console.log(response)
+    if (response.ok) {
+      return response.data
+    } else {
+      console.error('Failed to delete user');
+    }
+  })
+  .catch(error => console.error('An error occurred', error));
+}

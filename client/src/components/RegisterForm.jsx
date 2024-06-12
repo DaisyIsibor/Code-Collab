@@ -22,7 +22,7 @@ const RegisterForm = () => {
       const response = await registerUser(formState);
       console.log('User registered:', response);
       AuthService.login(response.token);
-      navigate('/users');
+      navigate('/profile');
     } catch (error) {
       console.error('Error registering user:', error.message ? error.message : error);
       alert('Error registering user: ' + (error.message ? error.message : error));
