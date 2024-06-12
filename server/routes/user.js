@@ -13,6 +13,9 @@ router.post('/login', userController.login);
 // Update profile route
 router.put('/profile', userController.updateProfile);
 
+// Route to update user profile
+router.put('/profile/:userId', userController.updateProfile);
+
 // Get connection history route
 router.get('/connections', userController.getConnectionHistory);
 
