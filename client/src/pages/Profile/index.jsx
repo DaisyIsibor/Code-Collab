@@ -41,7 +41,7 @@ const Profile = () => {
     bio:'',
   });
 
-  // useEffect hook to fetch user data and pre-set form data with the response
+  // useEffect hook to fetch user data and pre-set form data 
   useEffect(() => {
     // Get user data and update state
     // Define by user id and then send data to it 
@@ -130,7 +130,8 @@ const Profile = () => {
         <textarea type="text" name="bio" value={formData.bio} onChange={handleChange} ></textarea>
       </div>
       </div>
-      <button id="submitButton" type="submit">Update Profile</button>
+      <button id="submitButton" type="submit">Edit Profile</button>
+      <button id="submitButton" type="submit">Delete Profile</button>
     </form>
   );
 };
