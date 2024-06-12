@@ -75,7 +75,12 @@ const Profile = () => {
       </label>
       <label>
         Role:
-        <input type="text" name="role" value={profileData.role} onChange={handleChange} />
+        <select name="role" value={profileData.role} onChange={handleChange}>
+          <option value="None">None</option>
+          <option value="Study Buddy">Study Buddy</option>
+          <option value="Collaborator">Collaborator</option>
+          <option value="Mentor">Mentor</option>
+        </select>
       </label>
       <label>
         Location:
