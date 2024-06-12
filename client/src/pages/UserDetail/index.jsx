@@ -1,4 +1,3 @@
-// This file displays the details of a specific user
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getUserById, getReviewsForUser, addReview } from '../../utils/api';
@@ -24,6 +23,7 @@ const UserDetail = () => {
       try {
         // Fetch user data by ID using API call
         const data = await getUserById(userId);
+        console.log('Fetched user data:', data); // Debug log to check the user data structure
         setUser(data);
       } catch (error) {
         console.error('Error fetching user details:', error);
@@ -39,6 +39,7 @@ const UserDetail = () => {
       }
     };
 
+    // Call when component mounts
     fetchUser();
     fetchReviews();
   }, [userId]);
@@ -114,4 +115,3 @@ const UserDetail = () => {
 };
 
 export default UserDetail;
-
