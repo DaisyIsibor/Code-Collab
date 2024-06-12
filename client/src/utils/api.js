@@ -133,3 +133,14 @@ export const deleteReview = async (reviewId, reviewData) => {
     throw error.response ? error.response.data : error;
   }
 };
+
+// Function to delete a user
+export const deleteUser = async (userId) => {
+  try {
+    const response = await axios.delete(`${baseURL}/users/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting user:', error.response ? error.response.data : error);
+    throw error.response ? error.response.data : error;
+  }
+};

@@ -43,9 +43,8 @@ textarea {
   height: 100px;
 }
 
-button[type="submit"] {
-  background-color: #87CEFA;
-  color: white;
+button[type="submit"],
+button.delete-button {
   padding: 10px;
   border: none;
   border-radius: 4px;
@@ -54,6 +53,20 @@ button[type="submit"] {
   margin-top: 10px;
 }
 
+button[type="submit"] {
+  background-color: #87CEFA;
+  color: white;
+}
+
 button[type="submit"]:hover {
   background-color: #1E90FF;
+}
+
+button.delete-button {
+  background-color: #e4616e;
+  color: white;
+}
+
+button.delete-button:hover {
+  background-color: #c82333;
 }
