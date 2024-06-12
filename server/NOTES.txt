@@ -123,6 +123,7 @@ NPM Packages:
 
 npm i socket.io
 
+npm install mdb-react-ui-kit
 ==================================================
 ...
 
