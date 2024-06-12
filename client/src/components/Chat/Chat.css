@@ -1,24 +1,71 @@
-.chat-messages {
+
+  .chat-messages {
     height: 300px;
     overflow-y: auto;
-    border: 1px solid #e1b3ef;
+    border: 1px solid #ccc; /* Changed border color for better visibility */
     padding: 10px;
     margin-bottom: 10px;
+    background-color: #f9f9f9; /* Added background color for better contrast */
+  }
+  
+  .message-sent,
+  .message-received {
+    margin: 10px 0; 
+    padding: 15px; 
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   }
   
   .message-sent {
     text-align: right;
     background-color: #9ccfe4;
-    margin: 5px 0;
-    padding: 5px;
-    border-radius: 5px;
   }
   
   .message-received {
     text-align: left;
-    background-color: #f1f0f0;
-    margin: 5px 0;
-    padding: 5px;
-    border-radius: 5px;
+    background-color: #fff; 
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .input-field {
+    flex: 1;
+    padding: 12px; 
+    border: 2px solid #ccc; 
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .send-button {
+    padding: 12px 20px;
+    background-color: #007bff; 
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+  }
+  
+  .send-button:hover {
+    background-color: #0056b3; /* Darker color on hover for feedback */
+  }
+  
+  /* Customize the scrollbar */
+  .chat-messages::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .chat-messages::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border-radius: 4px;
+  }
+  
+  .chat-messages::-webkit-scrollbar-thumb:hover {
+    background-color: #a8a8a8;
   }
   
