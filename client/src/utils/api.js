@@ -27,7 +27,7 @@ export const loginUser = async (credentials) => {
 // Function to update user profile
 export const updateProfile = async (userId, updatedData) => {
   try {
-    const response = await axios.put(`${baseURL}/users/profile`, userId, updatedData);
+    const response = await axios.put(`${baseURL}/users/profile`, { userId, ...updatedData });
     return response.data;
   } catch (error) {
     console.error('Error updating user profile:', error);
@@ -108,6 +108,28 @@ export const getReviewsForUser = async (userId) => {
     return response.data;
   } catch (error) {
     console.error('Error fetching reviews:', error.response ? error.response.data : error);
+    throw error.response ? error.response.data : error;
+  }
+};
+
+// Function to update a review
+export const updateReview = async (reviewId, reviewData) => {
+  try {
+    const response = await axios.put(`${baseURL}/reviews/${reviewId}`, reviewData);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating review:', error.response ? error.response.data : error);
+    throw error.response ? error.response.data : error;
+  }
+};
+
+// Function to delete a review
+export const deleteReview = async (reviewId, reviewData) => {
+  try {
+    const response = await axios.delete(`${baseURL}/reviews/${reviewId}`, { data: reviewData });
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting review:', error.response ? error.response.data : error);
     throw error.response ? error.response.data : error;
   }
 };

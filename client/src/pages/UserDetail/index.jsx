@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getUserById, getReviewsForUser, addReview } from '../../utils/api';
+import { getUserById, getReviewsForUser, addReview, updateReview, deleteReview } from '../../utils/api';
 import AuthService from '../../utils/auth';
 import Chat from '../../components/Chat/Chat';
 import './style.css';
@@ -13,6 +13,7 @@ const UserDetail = () => {
   const [user, setUser] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState({ content: '', rating: '' });
+  const [editingReview, setEditingReview] = useState(null); // State for editing a review
   const [chatOpen, setChatOpen] = useState(false); // Declare chatOpen state
   // Get the current user's ID
   const currentUserId = AuthService.getProfile().userId;
@@ -60,6 +61,28 @@ const UserDetail = () => {
     }
   };
 
+  const handleReviewEdit = async (reviewId, content, rating) => {
+    try {
+      const updatedData = { userId: currentUserId, content, rating };
+      const updatedReview = await updateReview(reviewId, updatedData);
+      setReviews((prevReviews) =>
+        prevReviews.map((review) => (review._id === reviewId ? updatedReview.review : review))
+      );
+      setEditingReview(null);
+    } catch (error) {
+      console.error('Error updating review:', error);
+    }
+  };
+
+  const handleReviewDelete = async (reviewId) => {
+    try {
+      await deleteReview(reviewId, { userId: currentUserId });
+      setReviews((prevReviews) => prevReviews.filter((review) => review._id !== reviewId));
+    } catch (error) {
+      console.error('Error deleting review:', error);
+    }
+  };
+
   // Ensure codingLanguages is an array
   const codingLanguages = Array.isArray(user.codingLanguages) ? user.codingLanguages : [];
 
@@ -78,10 +101,16 @@ const UserDetail = () => {
         <div>
           <strong>Reviews:</strong>
           <ul>
-            {reviews.map(review => (
+            {reviews.map((review) => (
               <li key={review._id}>
                 <p>{review.content} - <strong>Rating:</strong> {review.rating}</p>
                 <p><strong>Reviewed by:</strong> {review.userId.username}</p>
+                {review.userId._id === currentUserId && (
+                  <div>
+                    <button onClick={() => setEditingReview(review)}>Edit</button>
+                    <button onClick={() => handleReviewDelete(review._id)}>Delete</button>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -106,6 +135,30 @@ const UserDetail = () => {
         />
         <button type="submit">Submit Review</button>
       </form>
+      {editingReview && (
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          handleReviewEdit(editingReview._id, editingReview.content, editingReview.rating);
+        }}>
+          <h3>Edit Review</h3>
+          <textarea
+            value={editingReview.content}
+            onChange={(e) => setEditingReview({ ...editingReview, content: e.target.value })}
+            placeholder="Edit your review"
+            required
+          />
+          <input
+            type="number"
+            value={editingReview.rating}
+            onChange={(e) => setEditingReview({ ...editingReview, rating: e.target.value })}
+            placeholder="Rating (1-5)"
+            min="1"
+            max="5"
+            required
+          />
+          <button type="submit">Update Review</button>
+        </form>
+      )}
       <button onClick={() => setChatOpen(!chatOpen)}>
         {chatOpen ? 'Close Chat' : 'Open Chat'}
       </button>
