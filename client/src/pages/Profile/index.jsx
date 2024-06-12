@@ -1,6 +1,6 @@
 import Auth from '../../utils/auth.js';
 import React, { useState, useEffect } from 'react';
-import { updateProfile, getUserById } from '../../utils/api.js';
+import { updateProfile, getUserById, deleteUser } from '../../utils/api.js';
 import './style.css';
 
 const Profile = () => {
@@ -50,31 +50,18 @@ const Profile = () => {
     try {
       const response = await updateProfile ({userId:Auth.getProfile().userId, ...formData})
     } catch (error) {
-      console.error('There was an error creating your profile!', error);
+      console.error(error.message);
     }
   };
 
-  const UserList = () => {
-    const [users, setUsers] = useState([]);
-
-    useInsertionEffect(() => {
-      fetch('/api/users')
-      .then(response => response.json())
-      .then(data => setUsers(data));
-    }, []);
-
-    const deleteUser = (userId) => {
-      fetch(`/api/users/${userId}`, {
-        method: 'DELETE',
-      })
-      .then(response => {
-        if (response.ok) {
-          setUsers(users.filter(user => user.id !== userId));
-        } else {
-          console.error('Failed to delete user');
-        }
-      })
-      .catch(error => console.error('An error occurred', error));
+  const handleDelete = async (e) => {
+    try {
+      const response = await deleteUser (Auth.getProfile().userId)
+      console.log(response)
+      Auth.logout()
+    }
+    catch(error) {
+      console.error(error.message);
     }
   }
 
@@ -130,7 +117,7 @@ const Profile = () => {
       </div>
       </div>
       <button id="submitButtonEdit" type="submitEdit">Edit Profile</button>
-      <button id="submitButtonDelete" type="submitDelete">Delete Profile</button>
+      <button onClick={handleDelete} id="submitButtonDelete" type="submitDelete">Delete Profile</button>
       {/* <ul>
         {users.map(user => (
           <li key={user.id}>
