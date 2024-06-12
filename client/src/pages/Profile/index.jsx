@@ -1,31 +1,9 @@
-//
-// This is commented out
-// import Form from 'react-bootstrap/Form';
+// <<<<<<< feature/imon-review
 
-// export default function Profile() {
-//   return (
-//     <div>
-//         <h2>Create your Profile!</h2>
-//         <h3>Please fill out the fields below to create your profile</h3>
-//     <Form>
-//       <Form.Group controlId="formFile" className="mb-3">
-//         <Form.Label>Default file input example</Form.Label>
-//         <Form.Control type="file" />
-//       </Form.Group>
-//       <Form.Group controlId="formFileSm" className="mb-3">
-//         <Form.Label>Small file input example</Form.Label>
-//         <Form.Control type="file" size="sm" />
-//       </Form.Group>
-//       <Form.Group controlId="formFileLg" className="mb-3">
-//         <Form.Label>Large file input example</Form.Label>this is my first signup. i love coding and would like to know more about it  
-//         <Form.Control type="file" size="lg" />
-//       </Form.Group>
-//     </Form>
-//     {/* </> */}
-//     </div>
-//   );
-// }
 
+import AuthService from '../../utils/auth';
+
+// +++++++++
 
 
 
@@ -33,21 +11,38 @@
 import Auth from '../../utils/auth.js';
 import React, { useState, useEffect } from 'react';
 import { updateProfile, getUserById, deleteUser } from '../../utils/api.js';
+//  main
 import './style.css';
 
 const Profile = () => {
-  const [formData, setFormData] = useState({
+  const [profileData, setProfileData] = useState({
     firstName: '',
     lastName: '',
-    email: '', 
+    email: '',
     username: '',
     codingLanguages: '',
     meetingPreference: '',
-    role: '',
+    role: 'None',
     location: '',
-    bio:'',
+    bio: '',
   });
 
+// <<<<<<< feature/imon-review
+//   const userId = AuthService.getProfile().userId;
+
+//   useEffect(() => {
+//     const fetchProfile = async () => {
+//       try {
+//         const data = await getUserById(userId);
+//         setProfileData(data);
+//       } catch (error) {
+//         console.error('Error fetching profile:', error);
+//       }
+//     };
+
+//     fetchProfile();
+//   }, [userId]);
+// =======
   // useEffect hook to fetch user data and pre-set form data 
   useEffect(() => {
     // Get user data and update state
@@ -69,24 +64,45 @@ const Profile = () => {
     });
     // Empty dependency array so that useEffect only runs once 
   }, []);
+// >>>>>>> main
 
   const handleChange = (e) => {
-    const { name, value } = e.target; //destructuring to extract name and value properties from the event's target (the input element)
-    setFormData({ 
-      ...formData,
-      [name]: value,
-    });
+    const { name, value } = e.target;
+    setProfileData({ ...profileData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await updateProfile({ userId: Auth.getProfile().userId, ...formData });
-    } catch (error) {
-// sheryl/code-work4
-      console.error(error.message);
+// <<<<<<< feature/imon-review
+//       const updatedData = { ...profileData, userId };
+//       await updateProfile(userId, updatedData);
+//       alert('Profile updated successfully!');
+//     } catch (error) {
+//       console.error('Error updating profile:', error);
+//       alert('There was an error updating your profile!');
+//     }
+//   };
+
+//   const handleDelete = async () => {
+//     if (window.confirm('Are you sure you want to delete your profile? This action cannot be undone.')) {
+//       try {
+//         await deleteUser(userId);
+//         alert('Profile deleted successfully!');
+//         AuthService.logout(); // Log the user out after deleting their profile
+//         window.location.href = '/login'; // Redirect to the login page
+//       } catch (error) {
+//         console.error('Error deleting profile:', error);
+//         alert('There was an error deleting your profile!');
+//       }
 // =======
-//       console.error('There was an error updating your profile!', error);
+//       const response = await updateProfile({ userId: Auth.getProfile().userId, ...formData });
+//     } catch (error) {
+// // sheryl/code-work4
+//       console.error(error.message);
+// // =======
+// //       console.error('There was an error updating your profile!', error);
+// // >>>>>>> main
 // >>>>>>> main
     }
   };
@@ -103,142 +119,173 @@ const Profile = () => {
   }
 
   return (
-    <form className="profile-form" onSubmit={handleSubmit}>
+// <<<<<<< feature/imon-review
+//     <form onSubmit={handleSubmit}>
+// =======
+//     <form className="profile-form" onSubmit={handleSubmit}>
+// >>>>>>> main
       <div className="form-group">
         <label>First Name:</label>
-        <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
+        <input type="text" name="firstName" value={profileData.firstName || ''} onChange={handleChange} />
       </div>
       <div className="form-group">
         <label>Last Name:</label>
-        <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
+        <input type="text" name="lastName" value={profileData.lastName || ''} onChange={handleChange} />
       </div>
       <div className="form-group">
         <label>Email:</label>
-        <input type="text" name="email" value={formData.email} onChange={handleChange} />
+        <input type="email" name="email" value={profileData.email || ''} onChange={handleChange} />
       </div>
       <div className="form-group">
         <label>Username:</label>
-        <input type="text" name="username" value={formData.username} onChange={handleChange} />
+// <<<<<<< feature/imon-review
+//         <input type="text" name="username" value={profileData.username || ''} onChange={handleChange} />
+// =======
+//         <input type="text" name="username" value={formData.username} onChange={handleChange} />
+// >>>>>>> main
       </div>
       <div className="form-group">
         <label>Coding Languages:</label>
-        <input type="text" name="codingLanguages" value={formData.codingLanguages} onChange={handleChange} />
+        <input type="text" name="codingLanguages" value={profileData.codingLanguages || ''} onChange={handleChange} />
       </div>
       <div className="form-group">
         <label>Meeting Preference:</label>
-        <select name="meetingPreference" value={formData.meetingPreference} onChange={handleChange}> 
-          <option value="">Select an option</option>
-          <option value="inPerson">In Person</option>
-          <option value="online">Online</option>
+// <<<<<<< feature/imon-review
+//         <input type="text" name="meetingPreference" value={profileData.meetingPreference || ''} onChange={handleChange} />
+//       </div>
+//       <div className="form-group">
+//         <label>Role:</label>
+//         <select name="role" value={profileData.role || 'None'} onChange={handleChange}>
+//           <option value="None">None</option>
+//           <option value="Study Buddy">Study Buddy</option>
+//           <option value="Collaborator">Collaborator</option>
+//           <option value="Mentor">Mentor</option>
+// =======
+//         <select name="meetingPreference" value={formData.meetingPreference} onChange={handleChange}> 
+//           <option value="">Select an option</option>
+//           <option value="inPerson">In Person</option>
+//           <option value="online">Online</option>
+// >>>>>>> main
         </select>
       </div>
       <div className="form-group">
         <label>Location:</label>
-        <input type="text" name="location" value={formData.location} onChange={handleChange} />
+        <input type="text" name="location" value={profileData.location || ''} onChange={handleChange} />
       </div>
       <div className="form-group">
-        <label>Role:</label>
-        <select name="role" value={formData.role} onChange={handleChange}> 
-          <option value="">Select an option</option>
-          <option value="none">None</option>
-          <option value="observer">Observer</option>
-          <option value="studybuddy">Study Buddy</option>
-          <option value="mentor">Mentor</option>
-          <option value="collaborator">Collaborator</option>
-        </select>
-      </div>
-      <div className="form-group">
-        <label>Bio:</label>
-        <textarea name="bio" value={formData.bio} onChange={handleChange}></textarea>
-      </div>
-//
-      <button id="submitButtonEdit" type="submitEdit">Edit Profile</button>
-      <button onClick={handleDelete} id="submitButtonDelete" type="submitDelete">Delete Profile</button>
-      {/* <ul>
-        {users.map(user => (
-          <li key={user.id}>
-            {user.name} <button onClick={() => deleteUser(user.id)}>Delete Profile</button>
-          </li>
-        ))}
-      </ul> */}
-=======
-      <button type="submit">Update Profile</button>
-//
+// <<<<<<< feature/imon-review
+//         <label>Bio:</label>
+//         <textarea name="bio" value={profileData.bio || ''} onChange={handleChange} />
+//       </div>
+//       <button type="submit">Update Profile</button>
+//       <button type="button" onClick={handleDelete} className="delete-button">Delete Profile</button>
+// =======
+//         <label>Role:</label>
+//         <select name="role" value={formData.role} onChange={handleChange}> 
+//           <option value="">Select an option</option>
+//           <option value="none">None</option>
+//           <option value="observer">Observer</option>
+//           <option value="studybuddy">Study Buddy</option>
+//           <option value="mentor">Mentor</option>
+//           <option value="collaborator">Collaborator</option>
+//         </select>
+//       </div>
+//       <div className="form-group">
+//         <label>Bio:</label>
+//         <textarea name="bio" value={formData.bio} onChange={handleChange}></textarea>
+//       </div>
+// //
+//       <button id="submitButtonEdit" type="submitEdit">Edit Profile</button>
+//       <button onClick={handleDelete} id="submitButtonDelete" type="submitDelete">Delete Profile</button>
+//       {/* <ul>
+//         {users.map(user => (
+//           <li key={user.id}>
+//             {user.name} <button onClick={() => deleteUser(user.id)}>Delete Profile</button>
+//           </li>
+//         ))}
+//       </ul> */}
+// =======
+//       <button type="submit">Update Profile</button>
+// //
+// >>>>>>> main
     </form>
   );
 };
 
 export default Profile;
+// <<<<<<< feature/imon-review
+// =======
 
 
 
 
-//   const ProfileCreation = () => {
-//     return [formData, setForData] =
-//     useState({
-//         firstname: '',
-//         lastname: '',
-//         email: '',
-//         username: '',
-//         password: '',
-//         codingLanguages: '',
-//         meetingPreference: '',
-//         role: ''
-//     });
+// //   const ProfileCreation = () => {
+// //     return [formData, setForData] =
+// //     useState({
+// //         firstname: '',
+// //         lastname: '',
+// //         email: '',
+// //         username: '',
+// //         password: '',
+// //         codingLanguages: '',
+// //         meetingPreference: '',
+// //         role: ''
+// //     });
 
-//     const handleInputChange = (e) => {
-//         const { name, value } = e.target;
-//         setFormData({
-//             ...formData,
-//             [name]: value
-//         });
-//     };
-//     const handleInputSubmit = (e) => {
-//         e.preventDefault();
-//         console.log('Profile changes submitted:', formData);
-//     };
-//     return (
-//         <div>
-//             <h4>Create Profile</h4>
-//             <form onSubmit={handleSubmit}></form> 
-//                 <div>
-//                     <label>First name:</label>
-//                     <input
-//                         type="text"
-//                         firstname="firstname"
-//                         value={formData.firstname}
-//                         onChange={handleChange}
-//                     />
-//                 </div>
-//                 <div>
-//                     <label>First name:</label>
-//                     <input
-//                         type="text"
-//                         lastname="lastname"
-//                         value={formData.lastname}
-//                         onChange={handleChange}
-//                     />
-//                 </div>
-//             );
-//   };
+// //     const handleInputChange = (e) => {
+// //         const { name, value } = e.target;
+// //         setFormData({
+// //             ...formData,
+// //             [name]: value
+// //         });
+// //     };
+// //     const handleInputSubmit = (e) => {
+// //         e.preventDefault();
+// //         console.log('Profile changes submitted:', formData);
+// //     };
+// //     return (
+// //         <div>
+// //             <h4>Create Profile</h4>
+// //             <form onSubmit={handleSubmit}></form> 
+// //                 <div>
+// //                     <label>First name:</label>
+// //                     <input
+// //                         type="text"
+// //                         firstname="firstname"
+// //                         value={formData.firstname}
+// //                         onChange={handleChange}
+// //                     />
+// //                 </div>
+// //                 <div>
+// //                     <label>First name:</label>
+// //                     <input
+// //                         type="text"
+// //                         lastname="lastname"
+// //                         value={formData.lastname}
+// //                         onChange={handleChange}
+// //                     />
+// //                 </div>
+// //             );
+// //   };
 
-// };
-
-
-
-// In server.js
-
-// let profiles = [];
-
-// app.post('/profiles', (req, res) => {
-//     const { firstname, lastname, email, username, password,bio, codingLanguages, meetingPreference, connectionHistory, reviews, role } = req.body;
-// const profileData = { id: profiles.length + 1, firstname, lastname, email, username, password,bio, codingLanguages, meetingPreference, connectionHistory, reviews, role };
-// profiles.push(profileData);
-// });
+// // };
 
 
-// app.get('/profiles', (req, res) => {
-//  res.json(profiles);
-// });
+
+// // In server.js
+
+// // let profiles = [];
+
+// // app.post('/profiles', (req, res) => {
+// //     const { firstname, lastname, email, username, password,bio, codingLanguages, meetingPreference, connectionHistory, reviews, role } = req.body;
+// // const profileData = { id: profiles.length + 1, firstname, lastname, email, username, password,bio, codingLanguages, meetingPreference, connectionHistory, reviews, role };
+// // profiles.push(profileData);
+// // });
 
 
+// // app.get('/profiles', (req, res) => {
+// //  res.json(profiles);
+// // });
+
+
+// >>>>>>> main

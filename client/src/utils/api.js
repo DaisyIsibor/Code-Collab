@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:5051/api/users'; // This is how vite knows where to go 
+const baseURL = 'http://localhost:5051/api'; // Base URL for API calls
 
 // Function to register a user
 export const registerUser = async (userData) => {
   try {
-    const response = await axios.post(`${baseURL}/register`, userData);
+    const response = await axios.post(`${baseURL}/users/register`, userData);
     return response.data;
   } catch (error) {
     console.error('Error registering user:', error.response ? error.response.data : error);
@@ -16,7 +16,7 @@ export const registerUser = async (userData) => {
 // Function to login a user
 export const loginUser = async (credentials) => {
   try {
-    const response = await axios.post(`${baseURL}/login`, credentials);
+    const response = await axios.post(`${baseURL}/users/login`, credentials);
     return response.data;
   } catch (error) {
     console.error('Error logging in user:', error.response ? error.response.data : error);
@@ -27,7 +27,7 @@ export const loginUser = async (credentials) => {
 // Function to update user profile
 export const updateProfile = async (userId, updatedData) => {
   try {
-    const response = await axios.put(`${baseURL}/profile`, userId, updatedData);
+    const response = await axios.put(`${baseURL}/users/profile/${userId}`, updatedData);
     return response.data;
   } catch (error) {
     console.error('Error updating user profile:', error);
@@ -38,7 +38,7 @@ export const updateProfile = async (userId, updatedData) => {
 // Function to fetch user details by ID
 export const getUserById = async (userId) => {
   try {
-    const response = await axios.get(`${baseURL}/${userId}`);
+    const response = await axios.get(`${baseURL}/users/${userId}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching user details:', error);
@@ -49,7 +49,7 @@ export const getUserById = async (userId) => {
 // Function to fetch all users
 export const getAllUsers = async () => {
   try {
-    const response = await axios.get(baseURL);
+    const response = await axios.get(`${baseURL}/users`);
     return response.data;
   } catch (error) {
     console.error('Error fetching all users:', error);
@@ -60,7 +60,7 @@ export const getAllUsers = async () => {
 // Function to get the user count
 export const getUserCount = async () => {
   try {
-    const response = await axios.get(`${baseURL}/userCount`);
+    const response = await axios.get(`${baseURL}/users/userCount`);
     return response.data.count;
   } catch (error) {
     console.error('Error fetching user count:', error);
@@ -68,10 +68,10 @@ export const getUserCount = async () => {
   }
 };
 
-// New functions for chat messages
+// Function to get chat messages between two users
 export const getChatMessages = async (userId1, userId2) => {
   try {
-    const response = await axios.get(`http://localhost:5051/api/chat/${userId1}/${userId2}`);
+    const response = await axios.get(`${baseURL}/chat/${userId1}/${userId2}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching chat messages:', error);
@@ -79,15 +79,72 @@ export const getChatMessages = async (userId1, userId2) => {
   }
 };
 
+// Function to send a chat message
 export const sendChatMessage = async (messageData) => {
   try {
-    const response = await axios.post('http://localhost:5051/api/chat', messageData);
+    const response = await axios.post(`${baseURL}/chat`, messageData);
     return response.data;
   } catch (error) {
     console.error('Error sending chat message:', error);
     throw error;
   }
 };
+
+
+// Function to add a review
+export const addReview = async (reviewData) => {
+  try {
+    const response = await axios.post(`${baseURL}/reviews`, reviewData);
+    return response.data;
+  } catch (error) {
+    console.error('Error adding review:', error.response ? error.response.data : error);
+    throw error.response ? error.response.data : error;
+  }
+};
+
+// Function to fetch reviews for a specific user
+export const getReviewsForUser = async (userId) => {
+  try {
+    const response = await axios.get(`${baseURL}/reviews/for/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching reviews:', error.response ? error.response.data : error);
+    throw error.response ? error.response.data : error;
+  }
+};
+
+// Function to update a review
+export const updateReview = async (reviewId, reviewData) => {
+  try {
+    const response = await axios.put(`${baseURL}/reviews/${reviewId}`, reviewData);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating review:', error.response ? error.response.data : error);
+    throw error.response ? error.response.data : error;
+  }
+};
+
+// Function to delete a review
+export const deleteReview = async (reviewId, reviewData) => {
+  try {
+    const response = await axios.delete(`${baseURL}/reviews/${reviewId}`, { data: reviewData });
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting review:', error.response ? error.response.data : error);
+    throw error.response ? error.response.data : error;
+  }
+};
+
+// // Function to delete a user
+// export const deleteUser = async (userId) => {
+//   try {
+//     const response = await axios.delete(`${baseURL}/users/${userId}`);
+//     return response.data;
+//   } catch (error) {
+//     console.error('Error deleting user:', error.response ? error.response.data : error);
+//     throw error.response ? error.response.data : error;
+//   }
+// };
 
 export const deleteUser = async (userId) => {
   await axios.delete(`${baseURL}/${userId}`)
@@ -101,3 +158,4 @@ export const deleteUser = async (userId) => {
   })
   .catch(error => console.error('An error occurred', error));
 }
+
