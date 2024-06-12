@@ -141,3 +141,8 @@ req body: {
     "meetingPreference": "In Person",
     "role": "Mentor"
 }
+
+GET User{id} : http://localhost:5051/api/users/6667e5d193fe67b1f73adcc4
+
+
+PUT profile:  http://localhost:5051/api/users/profile/
