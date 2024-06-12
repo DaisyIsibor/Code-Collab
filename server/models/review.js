@@ -1,4 +1,4 @@
-// This page will manage reviews 
+// This page will manage reviews with this schema model
 
 import mongoose from 'mongoose';
 
@@ -27,6 +27,7 @@ const reviewSchema = new mongoose.Schema({
     // Timestamp automatically manage createdAt and updatedAt properties
 }, { timestamps: true });
 
+// Create the model for reviews
 const Review = mongoose.model('Review', reviewSchema);
 
 export default Review;

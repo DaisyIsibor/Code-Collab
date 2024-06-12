@@ -54,15 +54,19 @@ app.use('/api/users', userRoutes); // Mount user routes under /api/users endpoin
 app.use('/api/reviews', reviewRoutes); // Mount review routes under /api/reviews endpoint
 app.use('/api/chat', chatRoutes);
 
+// Establishing connection to Socket.IO
 io.on('connection', (socket) => {
   console.log('A user connected');
 
+  // Listen for 'joinRoom' event
   socket.on('joinRoom', ({ userId, recipientId }) => {
+    // Create a room
     const roomName = [userId, recipientId].sort().join('-');
     socket.join(roomName);
     console.log(`User ${userId} joined room ${roomName}`);
   });
 
+  // Listen for 'leaveRoom' event
   socket.on('leaveRoom', ({ userId, recipientId }) => {
     const roomName = [userId, recipientId].sort().join('-');
     socket.leave(roomName);

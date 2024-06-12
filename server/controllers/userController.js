@@ -1,3 +1,4 @@
+// This file handles operations such as registration, login, update profile, etc.
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/user.js';
@@ -9,22 +10,25 @@ const userController = {};
 userController.register = async (req, res) => {
     try {
         const { email, username, password } = req.body;
-
+        // Check if a user with the same email or username already exists
         const existingUser = await User.findOne({ $or: [{ email }, { username }] });
         if (existingUser) {
             return res.status(400).json({ message: 'Email or username already exists!' });
         }
-
+        // Hashing the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        // Create a new user with the provided details
         const newUser = new User({
             email,
             username,
             password: hashedPassword
         });
 
+        // Saving new user
         await newUser.save();
 
+        // Generate JWT token for the user 
         const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
 
         res.json({ message: 'User registered successfully', token });
@@ -39,16 +43,19 @@ userController.login = async (req, res) => {
     try {
         const { username, password } = req.body;
 
+         // Find user by username
         const user = await User.findOne({ username });
         if (!user) {
             return res.status(401).json({ message: 'Invalid username or password' });
         }
 
+        // Compare the provided password with the hashed password
         const isValidPassword = await bcrypt.compare(password, user.password);
         if (!isValidPassword) {
             return res.status(401).json({ message: 'Invalid username or password' });
         }
 
+        // Generate a JWT token for the user
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
 
         res.json({ message: 'Login successful', token });
@@ -63,8 +70,10 @@ userController.updateProfile = async (req, res) => {
     try {
         const { firstName, lastName, email, bio, username, codingLanguages, location, meetingPreference, role } = req.body;
 
+        // Extract the userId
         const userId = req.body.userId;
 
+        // Update the user's profile with the provided details
         await User.findByIdAndUpdate(userId, {
             $set: {
                 firstName,
@@ -105,8 +114,10 @@ userController.addReview = async (req, res) => {
     try {
         const { userId, content, rating } = req.body;
 
+        // Create a new review with the provided details
         const newReview = new Review({ userId, content, rating });
 
+        // Save the new review
         await newReview.save();
 
         await User.findByIdAndUpdate(userId, { $push: { reviews: newReview._id } });
