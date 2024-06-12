@@ -86,8 +86,9 @@ const UserList = () => {
               <img src={`/images/${user.photo}`} alt={user.username}/>
               <Link to={`/users/${user._id}`}>{user.username}</Link>
               {/* ADD CODING LANGUAGES */}
-              {/* <Link to {`/users/${user._id}`}>{user.codingLanguages}</Link> */}
+              {/* <p to {`/users/${user._id}`}>{user.codingLanguages}</p> */}
               {/* ADD LOCATION */}
+              <p to={`/users/${user._id}`} alt={user.location}></p>
             </li>
           ))}
         </ul>
@@ -96,6 +97,7 @@ const UserList = () => {
       )}
     </div>
   );
+
 };
 
 export default UserList;

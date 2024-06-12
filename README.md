@@ -23,6 +23,7 @@
 - Further work on front-end styling in React and possibly implementing another styling library, such as Material UI.   
 - reviews ?
 - a message box for questions (similar to an AI chatbox...), payment stripe (option to add tips for everybody and/or mentors who want to provide services for a fee?). 
+- Showing connection history between users
 - We learned...
 
 ## User Story 
@@ -33,6 +34,11 @@ SO THAT I can collobrate with other developers and either build on or showcase m
 
 ## Acceptance Criteria
 -  
+GIVEN a single-page application portfolio for a web developer
+WHEN I load the portfolio
+THEN I am presented with a page containing a header, a section for content, and a footer
+WHEN I view the header
+THEN I am presented with the developer's name and navigation with titles corresponding to different sections of the portfolio
 
 ## Technologies Used 
 - React
