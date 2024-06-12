@@ -19,7 +19,12 @@ const Header = ({ loggedIn, setLoggedIn }) => {
         <p className='m-0' style={{ fontSize: '1.75rem', fontWeight: '400' }}>Find your new programming pals!</p>
         <div>
           {loggedIn ? (
-            <button className='btn btn-lg btn-light m-2' onClick={logout}>Logout</button>
+            <>
+              <button className='btn btn-lg btn-light m-2' onClick={logout}>Logout</button>
+              <button className='btn btn-lg btn-light m-2' onClick={() => handleRoleFilter('Mentor')}>Mentors</button>
+              <button className='btn btn-lg btn-light m-2' onClick={() => handleRoleFilter('Study Buddy')}>Study Buddies</button>
+              <button className='btn btn-lg btn-light m-2' onClick={() => handleRoleFilter('Collaborator')}>Collaborators</button>
+            </>
           ) : (
             <>
               <Link className='btn btn-lg btn-primary m-2' to='/login'>Login</Link>
