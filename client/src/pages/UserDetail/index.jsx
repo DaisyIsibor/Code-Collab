@@ -41,6 +41,8 @@ const UserDetail = () => {
     <div className="user-detail-container">
       <h2>{user.username}'s Profile</h2>
       <img src={`/images/${user.photo}`} alt={user.username}/>
+      {user.firstName && <p><strong>FirstName: </strong>{user.firstName}</p>}
+      {user.lastName && <p><strong>lastName: </strong>{user.lastName}</p>}
       {user.bio && <p><strong>Bio:</strong> {user.bio}</p>}
       {user.codingLanguages && user.codingLanguages.length > 0 && (
         <p><strong>Coding Languages:</strong> {user.codingLanguages.join(', ')}</p>

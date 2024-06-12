@@ -119,6 +119,8 @@ NPM Packages:
 - npm init -y
 - npm install mongodb express cors mongoose dotenv bcrypt jsonwebtoken
 
+npm i socket.io
+
 ==================================================
 ...
 
