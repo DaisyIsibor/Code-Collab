@@ -18,15 +18,16 @@
 ## Description
 - Our motivation for this project was launched after a discussion about connecting with each other, and our classmates, after our boot camp has ended. We aimed to build an application where developers could connect and further build on their skills. We also wanted to provide a welcoming space for developers of all levels to collobrate and the classification for developers as either a mentor, collobrator or study buddy, was introduced. 
 - Some challenges were initially faced when beginning to code and organizing the layout of the website to create a user friendly and cohesive application, which affected how we moved forward with our code. 
-- There were also challenges with updating a profile and saving the user's previously added profile data. The update was clearing all the user's data at first, which in turn  
-- Initially implementing the review system was difficult and we decided we needed to have a way for the users to interact before they could review another user. The message system was then implemented, even though it had not initially been part of our MVP.
+- There were also challenges with updating a profile and saving the user's previously added profile data. The update was clearing all the user's data at first and a useEffect hook was implemented in order to retrieve the user data previously input. 
+- As well, implementing a filtering system in order to filter users by their role caused challenges. 
+- Initially implementing the review system was difficult and we decided users should be able to interact with each other before they could review each user. The message system was then implemented, even though it had not initially been part of our MVP.
 - Future development will include further work on front-end styling and possibly implementing another styling library, such as Material UI.   
-- We would like to implement a message box for questions, similar to an AI chatbox, and a payment stripe. With a payment option, we hope to add some type of payment for users, such as a tip system for users to leave others and/or for mentors who want to provide services for a fee, for example. 
+- We would like to implement a message box for questions, similar to an AI chatbox, and a payment stripe. With a payment option, we hope to add some type of payment for users, such as a tip system and/or for uesrs who want to provide services for a fee, for example mentoring. 
 - We would like to show the connection history between users so that users can see who they have previously interacted with.
 - Since filtering users by their role was also a challenge to implement by the project deadline this will be a future development task.
-- We would like to only allow users who have interacted and previously connected to leave a review of another user.
+- We would like to only allow users who have interacted and previously connected to leave a review of that user.
 - Lastly, we would like to allow users to upload a photo, rather than having this piece hardcoded, and we would implement a technology, such as Multer or Cloudinary. 
-- We learned a lot during the making of this project, including a much better understanding of React, specifically, components and useEffect hooks. THis project also helped us understand working with MongoDB   
+- We learned a lot during the making of this project, including a much better understanding of React, specifically, components, useEffect hooks and styling. This project also helped us understand working with MongoDB and Atlas and a cloud-based server. As well, this project really brought all the concepts of this bootcamp together to provide a much clearer understanding of web development. 
 
 ## User Story 
  
