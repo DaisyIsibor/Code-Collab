@@ -33,6 +33,11 @@ class AuthService {
     window.location.assign('/users');
   }
 
+  // signup(idToken) {
+  //   localStorage.setItem('id_token', idToken);
+  //   window.location.assign('/profile');
+  // }
+
   // Removed the token from localStorage and redirected to the home page
   logout() {
     localStorage.removeItem('id_token');

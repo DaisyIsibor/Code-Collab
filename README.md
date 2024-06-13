@@ -17,28 +17,32 @@
 
 ## Description
 - Our motivation for this project was launched after a discussion about connecting with each other, and our classmates, after our boot camp has ended. We aimed to build an application where developers could connect and further build on their skills. We also wanted to provide a welcoming space for developers of all levels to collobrate and the classification for developers as either a mentor, collobrator or study buddy, was introduced. 
-- Challenges...
-- Initially their were challenges organizing the file structure and creating the front-end with React. How to set the components and routes 
-- Future development...
-- Further work on front-end styling in React and possibly implementing another styling library, such as Material UI.   
-- reviews ?
-- a message box for questions (similar to an AI chatbox...), payment stripe (option to add tips for everybody and/or mentors who want to provide services for a fee?). 
-- Showing connection history between users
-- We learned...
+- Small challenges were initially faced when beginning to code and organizing the layout of the website to create a user friendly and cohesive application, which affected how we moved forward and our code. 
+- There were also challenges with updating a profile and saving the user's previously saved data because the update was clearing all the user's data at first, which in turn  
+- Initially implementing the review system was difficult and we decided we needed to have a way for the users to interact before they could review another user. The message system was then implemented eben though it had not initially been part of our MVP.
+- Future development will include further work on front-end styling and possibly implementing another styling library, such as Material UI.   
+- We would like to implement a message box for questions, similar to an AI chatbox, and a payment stripe. With a payment option, we hope to add some type of payment for users, such as a tip system for users to leave others and/or for mentors who want to provide services for a fee, for example. 
+- We would like to show the connection history between users so that users can see who they have previously interacted with.
+- Since filtering users by their role was also a challenge to implement by the project deadline this will be a future development taks.
+- Lastly, we would like to allow users to upload a photo, rather than having this piece hardcoded, and we would implement a technology, such as Multer or Cloudinary. 
+- We learned a lot during the making of this project, including a much better understanding of React, specifically, components, useEffect hooks and working with MongoDB   
 
 ## User Story 
-- 
-AS a coder/software developer
+ 
+AS a software developer
 I WANT to find a website with like-minded individuals 
 SO THAT I can collobrate with other developers and either build on or showcase my skill set
 
 ## Acceptance Criteria
--  
-GIVEN a single-page application portfolio for a web developer
-WHEN I load the portfolio
-THEN I am presented with a page containing a header, a section for content, and a footer
-WHEN I view the header
-THEN I am presented with the developer's name and navigation with titles corresponding to different sections of the portfolio
+  
+GIVEN a website for web developers
+WHEN I go to the website
+THEN I am presented with a page prompting a login or signup
+WHEN I am logged in 
+THEN I am presented with all the users of the website
+WHEN I go to my profile 
+THEN I am given the option to edit my profile
+WHEN I go to another user's 
 
 ## Technologies Used 
 - React
@@ -49,13 +53,14 @@ THEN I am presented with the developer's name and navigation with titles corresp
 - MongoDB 6.7.0
 - Mongoose 8.4.1
 - Nodemon 3.0.1
+- Socket.io 4.7.5
 
 ## Installation
 - npm i bootstrap react-bootstrap 
 - npm jwt-decode@2 
 
 ## Usage
-- 
+- To 
 
 ## Screenshots
 ![]()
@@ -64,7 +69,7 @@ THEN I am presented with the developer's name and navigation with titles corresp
 [x][y]
 
 ## License
-- An MIT License was used for this project. Please refer to the license documentation in the project for more information. 
+- An MIT License was used for this project. Please refer to the license documentation in the project for more detailed information. 
 
 ## Credits 
 
@@ -72,7 +77,6 @@ Last Name, F. M. [Username]. (Year, Month Date). Title of video [Video]. Streami
 Lastname, F. M. (Year, Month Date). Title of page. Site name. URL
 Lastname, F. M. (Year, Month Date). Title of post. Publisher. URL
 Lastname, F. M. or Name of Group [username]. (Year, Month Date). Title of post [Online forum post]. Publisher. URL
-
 
 
 Brown, J. (2023, August 16). Git Branching and Merging: A Step-By-Step Guide. Varonis. https://www.varonis.com/blog/git-branching
@@ -115,5 +119,3 @@ TheIvoryCoder [Username]. (2022, August 4). How To Use Material UI With React - 
 University of Toronto. (2023). Coding Boot Camp [Source Code].
 
 Using the Effect Hook. (n.d.). React https://legacy.reactjs.org/docs/hooks-effect.html
-
-...
