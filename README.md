@@ -17,15 +17,16 @@
 
 ## Description
 - Our motivation for this project was launched after a discussion about connecting with each other, and our classmates, after our boot camp has ended. We aimed to build an application where developers could connect and further build on their skills. We also wanted to provide a welcoming space for developers of all levels to collobrate and the classification for developers as either a mentor, collobrator or study buddy, was introduced. 
-- Small challenges were initially faced when beginning to code and organizing the layout of the website to create a user friendly and cohesive application, which affected how we moved forward and our code. 
-- There were also challenges with updating a profile and saving the user's previously saved data because the update was clearing all the user's data at first, which in turn  
-- Initially implementing the review system was difficult and we decided we needed to have a way for the users to interact before they could review another user. The message system was then implemented eben though it had not initially been part of our MVP.
+- Some challenges were initially faced when beginning to code and organizing the layout of the website to create a user friendly and cohesive application, which affected how we moved forward with our code. 
+- There were also challenges with updating a profile and saving the user's previously added profile data. The update was clearing all the user's data at first, which in turn  
+- Initially implementing the review system was difficult and we decided we needed to have a way for the users to interact before they could review another user. The message system was then implemented, even though it had not initially been part of our MVP.
 - Future development will include further work on front-end styling and possibly implementing another styling library, such as Material UI.   
 - We would like to implement a message box for questions, similar to an AI chatbox, and a payment stripe. With a payment option, we hope to add some type of payment for users, such as a tip system for users to leave others and/or for mentors who want to provide services for a fee, for example. 
 - We would like to show the connection history between users so that users can see who they have previously interacted with.
-- Since filtering users by their role was also a challenge to implement by the project deadline this will be a future development taks.
+- Since filtering users by their role was also a challenge to implement by the project deadline this will be a future development task.
+- We would like to only allow users who have interacted and previously connected to leave a review of another user.
 - Lastly, we would like to allow users to upload a photo, rather than having this piece hardcoded, and we would implement a technology, such as Multer or Cloudinary. 
-- We learned a lot during the making of this project, including a much better understanding of React, specifically, components, useEffect hooks and working with MongoDB   
+- We learned a lot during the making of this project, including a much better understanding of React, specifically, components and useEffect hooks. THis project also helped us understand working with MongoDB   
 
 ## User Story 
  
@@ -41,8 +42,9 @@ THEN I am presented with a page prompting a login or signup
 WHEN I am logged in 
 THEN I am presented with all the users of the website
 WHEN I go to my profile 
-THEN I am given the option to edit my profile
-WHEN I go to another user's 
+THEN I am given the option to update my profile or delete my profile
+WHEN I go to another user's profile
+THEN I am given an option to open a chat or review the user
 
 ## Technologies Used 
 - React
@@ -56,11 +58,13 @@ WHEN I go to another user's
 - Socket.io 4.7.5
 
 ## Installation
+-
 - npm i bootstrap react-bootstrap 
 - npm jwt-decode@2 
+- npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
 
 ## Usage
-- To 
+- To utilize this webpage a user can access the deployed link. As well, a user can git clone the application to their local computer and install the required dependencies listed above in the terminal. 
 
 ## Screenshots
 ![]()

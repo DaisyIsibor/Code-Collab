@@ -17,6 +17,8 @@
         "concurrently": "^8.2.0"
     },
     "dependencies": {
+        "@fortawesome/free-solid-svg-icons": "^6.5.2",
+        "@fortawesome/react-fontawesome": "^0.2.2",
         "mdb-react-ui-kit": "^8.0.0",
         "react-router-dom": "^6.23.1",
         "socket.io": "^4.7.5",
