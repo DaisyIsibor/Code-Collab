@@ -14,26 +14,10 @@ function App() {
             <main><Outlet context = { [loggedIn, setLoggedIn ] }/> </main>
         </div>
     );
-// experimental/imon-chat
 
 
 
 
-//   const [loggedIn, setLoggedIn] = useState(Auth.loggedIn());
-
-//   useEffect(() => {
-//     setLoggedIn(Auth.loggedIn());
-//   }, []);
-
-//   return (
-//     <div>
-//       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-//       <main>
-//         <Outlet />
-//       </main>
-//     </div>
-//   );
-// >>>>>>> main
 }
 
 export default App;

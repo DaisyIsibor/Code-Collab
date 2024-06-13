@@ -21,7 +21,7 @@ const Header = ({ loggedIn, setLoggedIn, handleRoleFilter }) => {
           <>
             <div className='button-container'>
               <button className='btn btn-lg btn-light m-2' onClick={() => handleRoleFilter('Mentor')}>Mentors</button>
-              <button className='btn btn-lg btn-light m-2' onClick={() => handleRoleFilter('Study Buddy')}>Study Buddies</button>
+              <button className='btn btn-lg btn-light m-2' onClick={() => handleRoleFilter('Study Buddy')}>Study Buddy</button>
               <button className='btn btn-lg btn-light m-2' onClick={() => handleRoleFilter('Collaborator')}>Collaborators</button>
             </div>
             <button className='btn btn-logout' onClick={logout}>Logout</button>
