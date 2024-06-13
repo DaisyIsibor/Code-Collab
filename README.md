@@ -95,15 +95,25 @@ https://react.dev/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rende
 
 Formspree. (2024). Formspree. https://formspree.io/
 
+Laith Harb [Username]. (2022, January 14). React Router v6 Tutorial [Video]. YouTube. Retrieved from https://www.youtube.com/watch?v=rxzOqP9YwmM&list=PL-RBOWPzYiMdR3xRSR2mOF8X0G8gWYkSe
+
 How to Use MERN Stack: A Complete Guide. (n.d.). MongoDB. https://www.mongodb.com/resources/languages/mern-stack-tutorial
 
 HTML Select Tag. (n.d.). W3Schools. https://www.w3schools.com/tags/tag_select.asp
 
 MongoDB [Username]. (2024, March 8). The Ultimate MERN Stack Complete Guide (MongoDB, Express, React, Node.js) [Video]. YouTube. https://www.youtube.com/watch?v=4nKWREmCvsE&list=PL-RBOWPzYiMdR3xRSR2mOF8X0G8gWYkSe&index=2
 
+MongoDB. (n.d.). MERN Stack Tutorial. Retrieved from https://www.mongodb.com/resources/languages/mern-stack-tutorial
+
+MongoDB. (n.d.). Security: Add MongoDB Users. Retrieved from https://www.mongodb.com/docs/atlas/security-add-mongodb-users/
+
 Outlet. (n.d.). React Route. https://reactrouter.com/en/main/components/outlet
 
 Protected Routes in React Router. (2024, April 4). Angular Mindshttps://www.angularminds.com/blog/protected-routes-in-react-router-authentication-and-authorization
+
+React. (2022, March 8). React 18 Upgrade Guide. Retrieved from https://react.dev/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis
+
+React. (n.d.). Switch to CreateRoot. Retrieved from https://reactjs.org/link/switch-to-createroot
 
 React: Outlet, Params. (2023, April 12). Medium. https://medium.com/@hpark0114/react-outlet-params-5da45901fc45
 
@@ -115,9 +125,13 @@ sebastienlorber [Username]. (n.d.). How Should a Protected Route Be Created with
 
 Sharma, A. (n.d.). NodeJS and MongoDB Application Authentication by JWT. Login Radius. https://www.loginradius.com/blog/engineering/nodejs-and-mongodb-application-authentication-by-jwt/
 
+Socket.IO. (n.d.). Socket.IO Documentation. Retrieved from https://socket.io/
+
 SourabhBagrecha [Username]. (2022, July). Argument of type ‘{ useNewUrlParser: boolean; useUnifiedTopology: boolean}’ is not assignable to parameter of type' [Online forum]. MongoDB Developer Community. https://www.mongodb.com/community/forums/t/argument-of-type-usenewurlparser-boolean-useunifiedtopology-boolean-is-not-assignable-to-parameter-of-type/169033/3
 
 Stacklep1 [Username]. (2021, March 25). React-router-dom' does not contain an export named useHistory [Online forum post]. Stack Overflow. https://stackoverflow.com/questions/66794972/react-router-dom-does-not-contain-an-export-named-usehistory
+
+Stack Overflow. (2021, March 31). React-router-dom does not contain an export named 'useHistory'. Retrieved from https://stackoverflow.com/questions/66794972/react-router-dom-does-not-contain-an-export-named-usehistory
 
 TheIvoryCoder [Username]. (2022, August 4). How To Use Material UI With React - Quick Tutorial [Video]. YouTube. https://www.youtube.com/watch?v=Mzk0x5687YM
 
