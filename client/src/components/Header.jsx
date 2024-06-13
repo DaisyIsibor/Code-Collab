@@ -29,7 +29,7 @@ const Header = ({ loggedIn, setLoggedIn, handleRoleFilter }) => {
         ) : (
           <div className='button-container'>
             <Link className='btn btn-lg btn-primary m-2' to='/login'>Login</Link>
-            <Link className='btn btn-lg btn-light m-2' to='/signup'>Signup</Link>
+            {/* <Link className='btn btn-lg btn-light m-2' to='/signup'>Signup</Link> */}
           </div>
         )}
       </div>

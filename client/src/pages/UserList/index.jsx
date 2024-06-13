@@ -56,28 +56,7 @@ const UserList = () => {
     user.username.toLowerCase().includes(searchQuery.toLowerCase())
   );
   return (
-// <<<<<<< sheryl/code-work4
-//     <div>
-//       <h2>All Users</h2>
-//       <p>Total Registered Users: {displayedCount}</p> {/* Display animated user count */}
-//       {users.length > 0 ? (
-//         <ul>
-//           {users.map((user) => (
-//             <li key={user._id}>
-//               <img src={`/images/${user.photo}`} alt={user.username}/>
-//               <Link to={`/users/${user._id}`}>{user.username}</Link>
-//               {/* ADD CODING LANGUAGES */}
-//               <p>{user.codingLanguages}</p>
-//               {/* ADD LOCATION */}
-//               <p> {user.location}</p>
-//             </li>
-//           ))}
-//         </ul>
-//       ) : (
-//         <div>No users found</div>
-//       )}
-//     </div>
-//
+
     <MDBContainer>
       <MDBTypography tag="h6" className="header-text">
         All Users
@@ -85,21 +64,26 @@ const UserList = () => {
       <MDBTypography tag="h6" className="header-text">
         Total Registered Users: {displayedCount}
       </MDBTypography>
+      <div style={{ marginBottom: '20px' }}>
       <input
         type="text"
         placeholder="Search users..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        style={{ width: '90%', height:'45px'}}
       />
+      </div>
       <MDBRow className="justify-content-center">
         {filteredUsers.map((user) => (
-          <MDBCol md="6" lg="4" key={user._id}>
+          
+          <MDBCol md="6" lg="4" >
             <MDBCard className="user-card">
               <MDBCardBody className="user-card-body text-center">
                 <MDBCardImage
                   src={user.photo ? `/images/${user.photo}` : '/default-image.jpg'}
                   alt={user.username}
-                  className="user-card-image mb-3"
+                  className="user-card-image mb-3" 
+                  style={{ height: '200px', width: '200px'}}
                   fluid
                 />
                 <MDBTypography tag="h5" className="mb-2">
@@ -113,7 +97,7 @@ const UserList = () => {
                 </MDBTypography>
                 <div className="user-card-buttons">
                   <Link to={`/users/${user._id}`}>
-                    <MDBBtn outline color="dark" rounded size="sm">
+                    <MDBBtn outline color="dark" rounded size="sm" style={{ backgroundColor: '#61dafbaa' }}>
                       Go to profile
                     </MDBBtn>
                   </Link>

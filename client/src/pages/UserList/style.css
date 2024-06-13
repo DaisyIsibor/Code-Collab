@@ -1,6 +1,7 @@
 /* UserList style.css */
 .container {
     padding: 20px;
+   
   }
   
 
@@ -31,3 +32,24 @@
     display: flex;
     gap: 0.5rem;
   }
+
+
+  ::-webkit-input-placeholder { /* WebKit/Blink browsers */
+    color: grey;
+   
+
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: grey;
+    opacity: 1;
+   
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: grey;
+    opacity: 1;
+   
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: grey;
+
+}
