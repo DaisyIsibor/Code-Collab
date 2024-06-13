@@ -19,6 +19,7 @@
     "dependencies": {
         "mdb-react-ui-kit": "^8.0.0",
         "react-router-dom": "^6.23.1",
-        "socket.io": "^4.7.5"
+        "socket.io": "^4.7.5",
+        "start": "^5.1.0"
     }
 }
