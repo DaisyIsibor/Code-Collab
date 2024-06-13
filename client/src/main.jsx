@@ -13,6 +13,8 @@ import Mentors from './pages/Mentors';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Auth from './utils/auth';
+import ContactUs from './pages/ContactUs/ContactUs';
+import Footer from './components/Footer/Footer';
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,18 +35,22 @@ const App = () => {
     <Router>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       {/* Render Navigation bar to each page */}
-      <Navigation></Navigation> 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/users" element={<ProtectedRoute><UserList /></ProtectedRoute>} />
-        <Route path="/users/:userId" element={<ProtectedRoute><UserDetail /></ProtectedRoute>} />
-        <Route path="/apply" element={<ProtectedRoute><Apply /></ProtectedRoute>} />
-        <Route path="/mentor" element={<ProtectedRoute><Mentors /></ProtectedRoute>} />
-        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
+      <Navigation />
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/users" element={<ProtectedRoute><UserList /></ProtectedRoute>} />
+          <Route path="/users/:userId" element={<ProtectedRoute><UserDetail /></ProtectedRoute>} />
+          <Route path="/apply" element={<ProtectedRoute><Apply /></ProtectedRoute>} />
+          <Route path="/mentor" element={<ProtectedRoute><Mentors /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+        </Routes>
+      </div>
+      <Footer />
     </Router>
   );
 };

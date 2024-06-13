@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.contact-container {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to left, #b3e5fc, #81d4fa);
+  padding: 50px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #b3e5fc, #81d4fa);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: block;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.collaborators {
+  margin-top: 30px;
+  text-align: center;
+  background: linear-gradient(to left, #b3e5fc, #81d4fa);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.collaborators h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.collaborators ul {
+  list-style: none;
+  padding: 0;
+}
+
+.collaborators li {
+  margin-bottom: 10px;
+}
+
+.collaborators a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.collaborators a:hover {
+  text-decoration: underline;
+}
