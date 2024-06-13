@@ -25,7 +25,7 @@
 - We would like to implement a message box for questions, similar to an AI chatbox, and a payment stripe. With a payment option, we hope to add some type of payment for users, such as a tip system and/or for uesrs who want to provide services for a fee, for example mentoring. 
 - We would like to show the connection history between users so that users can see who they have previously interacted with.
 - Since filtering users by their role was also a challenge to implement by the project deadline this will be a future development task.
-- We would like to only allow users who have interacted and previously connected to leave a review of that user.
+- We would like to only allow users who have interacted and previously connected to leave a review of that user. As well, so that users cannot leave themselves a review.
 - Lastly, we would like to allow users to upload a photo, rather than having this piece hardcoded, and we would implement a technology, such as Multer or Cloudinary. 
 - We learned a lot during the making of this project, including a much better understanding of React, specifically, components, useEffect hooks and styling. This project also helped us understand working with MongoDB and Atlas and a cloud-based server. As well, this project really brought all the concepts of this bootcamp together to provide a much clearer understanding of web development. 
 
@@ -57,18 +57,60 @@ THEN I am given an option to open a chat or review the user
 - Mongoose 8.4.1
 - Nodemon 3.0.1
 - Socket.io 4.7.5
+- Bcrypt 5.1.1
+- cors 2.8.5
+- Dotenv 16.4.5
+- Mdb-react-ui-kit 
+- @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons react-modal
+- React-modal
+- React-router-dom
+- Axios
 
 ## Installation
--
-- npm i bootstrap react-bootstrap 
-- npm jwt-decode@2 
-- npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+- Initialize Project: Run npm run install command in the terminal to install all dependencies.
+- Start Development Server: Run npm run develop command in the terminal to start the application.
 
 ## Usage
 - To utilize this webpage a user can access the deployed link. As well, a user can git clone the application to their local computer and install the required dependencies listed above in the terminal. 
 
 ## Screenshots
-![]()
+![Screenshot of the application open in the browser on the home page](./client/public/images/screenshot1.png)
+
+![Screenshot of the application open in the browser on the login page](./client/public/images/screenshot2.png)
+
+![Screenshot of the application open in the browser on the login page showing the full login box](./client/public/images/screenshot3.png)
+
+![Screenshot of the application open in the browser on the users page after login](./client/public/images/screenshot4.png)
+
+![Screenshot of the application open in the browser on the logged in users profile page](./client/public/images/screenshot5.png)
+
+![Screenshot of the application open in the browser on the logged in users profile showing the full page including their reviews](./client/public/images/screenshot6.png)
+
+![Screenshot of the application open in the browser viewing another users profile page](./client/public/images/screenshot7.png)
+
+![Screenshot of the application open in the browser initializing a chat with another user](./client/public/images/screenshot8.png)
+
+![Screenshot of the application open in the browser once a chat message has been sent to another user](./client/public/images/screenshot9.png)
+
+![Screenshot of the application open in the browser showing the review section for another user](./client/public/images/screenshot10.png)
+
+![Screenshot of the application open in the browser writing a review of another user](./client/public/images/screenshot11.png)
+
+![Screenshot of the application open in the browser once a review has been made of another user](./client/public/images/screenshot12.png)
+
+![Screenshot of the application open in the browser on the sign up page](./client/public/images/screenshot13.png)
+
+![Screenshot of the application open in the browser with a new users information complete in the sign up form](./client/public/images/screenshot14.png)
+
+![Screenshot of the application open in the browser on the users page showing the new user created](./client/public/images/screenshot15.png)
+
+![Screenshot of the application open in the browser on the new users profile showing the 'Delete Profile' button](./client/public/images/screenshot16.png)
+
+![Screenshot of the application open in the browser asking the user if they are sure they would like to delete their profile](./client/public/images/screenshot17.png)
+
+![Screenshot of the application open in the browser after successful deletion of their profile](./client/public/images/screenshot18.png)
+
+![Screenshot of the application open in the browser with the user  brought to the login page after profile deletion](./client/public/images/screenshot19.png)
 
 ## Live Link
 [x][y]
@@ -77,12 +119,6 @@ THEN I am given an option to open a chat or review the user
 - An MIT License was used for this project. Please refer to the license documentation in the project for more detailed information. 
 
 ## Credits 
-
-Last Name, F. M. [Username]. (Year, Month Date). Title of video [Video]. Streaming Service. URL
-Lastname, F. M. (Year, Month Date). Title of page. Site name. URL
-Lastname, F. M. (Year, Month Date). Title of post. Publisher. URL
-Lastname, F. M. or Name of Group [username]. (Year, Month Date). Title of post [Online forum post]. Publisher. URL
-
 
 Brown, J. (2023, August 16). Git Branching and Merging: A Step-By-Step Guide. Varonis. https://www.varonis.com/blog/git-branching
 
