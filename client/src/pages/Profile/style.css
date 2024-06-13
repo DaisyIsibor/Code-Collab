@@ -71,7 +71,7 @@ button.delete-button {
 button.delete-button:hover {
   background-color: #c82333;
 }
-
+/* 
 .profile-form {
     max-width: 400px;
     margin: 0 auto;
@@ -112,5 +112,4 @@ button.delete-button:hover {
     height: 150px;
     
   }
-
  */
