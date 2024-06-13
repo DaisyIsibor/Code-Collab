@@ -14,9 +14,8 @@ const Profile = () => {
     location: '',
     bio: '',
   });
-// <<<<<<< feature/imon-final2
 
-//   const userId = AuthService.getProfile().userId;
+
 
 
   const userId = AuthService.getProfile().userId;
@@ -29,12 +28,9 @@ const Profile = () => {
         console.error('Error fetching profile:', error);
       }
     };
-// <<<<<<< feature/imon-final2
 
-//     fetchProfile();
-//   }, [userId]);
 
-// =======
+
     fetchProfile();
   }, [userId]);
 
@@ -53,10 +49,8 @@ const Profile = () => {
       alert('There was an error updating your profile!');
     }
   };
-// <<<<<<< feature/imon-final2
 
-// =======
-// >>>>>>> main
+
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete your profile? This action cannot be undone.')) {
       try {
@@ -70,10 +64,9 @@ const Profile = () => {
       }
     }
   };
-// <<<<<<< feature/imon-final2
 
-// =======
-// >>>>>>> main
+
+
   return (
     <form onSubmit={handleSubmit} className="profile-form">
       <div className="form-group">
@@ -126,3 +119,4 @@ const Profile = () => {
   );
 };
 export default Profile;
+
