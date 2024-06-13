@@ -1,0 +1,41 @@
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0; /* Reduced padding for a slimmer look */
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer-button {
+    background-color: #b3e5fc; /* Very light shade of blue */
+    color: #333;
+    padding: 5px 10px; /* Reduced padding for the button */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-bottom: 5px; /* Reduced margin */
+    font-size: 14px; /* Smaller font size */
+  }
+  
+  .footer-button:hover {
+    background-color: #81d4fa; /* Slightly darker shade of blue on hover */
+    color: #fff;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 12px; /* Smaller font size */
+  }
+  
+  .footer p.rights-reserved {
+    color: #fff
+  }
+  
