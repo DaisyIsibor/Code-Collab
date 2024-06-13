@@ -12,7 +12,7 @@ export default function Home() {
       key={index}
       icon={faArrowRight}
       className="arrow-icon"
-      style={{ marginRight: '5px', fontSize: '20px', color: '#61dafbaa', fontSize: '8em', marginBottom: '20px', bottom: '10px', left: '20%' , position:'relative', marginTop:'20%' }} 
+      style={{ marginRight: '5px', color: '#61dafbaa', fontSize: '8em', marginBottom: '20px', bottom: '10px', left: '20%' , position:'relative', marginTop:'20%' }} 
     />
   ));
 

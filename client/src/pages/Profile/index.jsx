@@ -125,7 +125,7 @@ const Profile = () => {
     </form>
   );
 };
-// export default Profile;
+export default Profile;
 // <<<<<<< feature/imon-final2
 // =======
 
